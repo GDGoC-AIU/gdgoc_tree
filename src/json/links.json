@@ -3,7 +3,7 @@
   {"text": "Discord", "link": "https://discord.com", "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg", "color": "blue" },
   {"text": "LinkedIn", "link": "https://linkedin.com/company/GDGoC-AIU", "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg", "color": "blue" },
   {"text": "Facebook", "link": "https://www.facebook.com/GDGOnCampusAIU", "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg", "color": "blue" },
-  {"text": "Bevy", "link": "https://gdg.community.dev/gdg-on-campus-alamein-international-university/", "icon": "https://gdgoc-aiu.github.io/gdgoc_tree/assets/icons/GDGOnCampus-Horizontal-logo.png", "color": "green" },
+  {"text": "Bevy", "link": "https://gdg.community.dev/gdg-on-campus-alamein-international-university/", "icon": "https://github.com/GDGoC-AIU/.github/blob/main/assets/GDGoC-logo.png?raw=true", "color": "green" },
   {"text": "Github", "link": "https://github.com/GDGoC-AIU", "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg", "color": "gray" },
   {"text": "Website", "link": "https://gdgoc-aiu.github.io/chapter-website/", "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg", "color": "yellow" }
 ]
