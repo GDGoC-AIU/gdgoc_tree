@@ -23,7 +23,7 @@
   {
     "text": "Bevy", 
     "link": "https://gdg.community.dev/gdg-on-campus-alamein-international-university/", 
-    "icon": "./assets/icons/GDGoC-logo1.png", 
+    "icon": "./assets/icons/GDGoC-icon.png", 
     "color": "#34a853" },
   {
     "text": "Github", 
@@ -33,6 +33,6 @@
   {
     "text": "Website", 
     "link": "https://gdgoc-aiu.github.io/chapter-website/", 
-    "icon": "https://github.com/GDGoC-AIU/gdgoc_tree/blob/main/assets/icons/github-icon.png?raw=true", 
+    "icon": "https://github.com/GDGoC-AIU/gdgoc_tree/blob/main/assets/icons/WWW-icon.png?raw=true", 
     "color": "#f9ab00" }
 ]
