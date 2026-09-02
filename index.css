@@ -38,8 +38,17 @@ body {
   top: 50px;
   left: 20px;
 
-  width: 200px;
+  width: 400px;
   height: auto;
+
+  transform: translateX(-100px);
+  opacity: 0;
+
+  animation: fadeRight 1s ease 0.5s forwards;
+}
+
+.title-logo {
+  transform: scale(0.7);
 }
 
 .container-background {
@@ -54,14 +63,14 @@ body {
 
   background: linear-gradient(
     to bottom right,
-    #4285f4 0%,
-    #4285f4 24%,
+    #ea4335 0%,
+    #ea4335 24%,
     #34a853 24%,
     #34a853 49%,
     #f9ab00 49%,
     #f9ab00 74%,
-    #ea4335 74%,
-    #ea4335 100%
+    #4285f4 74%,
+    #4285f4 100%
   );
 
   padding: 5px;
@@ -94,11 +103,19 @@ body {
 .container h1 {
   font-size: 96px;
   margin: 0;
+
+  transform: translateX(-50px);
+  opacity: 0;
+  animation: fadeRight 1s ease 0.7s forwards;
 }
 
 .container p {
   font-size: 24px;
   margin-top: 0;
+
+  transform: translateX(-50px);
+  opacity: 0;
+  animation: fadeRight 1s ease 0.8s forwards;
 }
 
 .google-circle {
@@ -122,25 +139,40 @@ body {
   background: #34a853;
   right: 50px;
   top: -350px;
+
+  transform: translate(0px, -150px);
+
+  animation: circleAnimation 1s ease forwards;
 }
 
 .google-circle.blue {
   background: #4285f4;
-  left: -100px;
-  top: -250px;
+  right: -175px;
+  bottom: -200px;
+
+  transform: translate(300px, 200px);
+
+  animation: circleAnimation 1s ease forwards;
 }
 
 .google-circle.yellow {
   background: #f9ab00;
   left: 50px;
   bottom: -350px;
+
+  transform: translate(-300px, 150px);
+
+  animation: circleAnimation 1s ease forwards;
 }
 
 .google-circle.red {
   background: #ea4335;
+  left: -80px;
+  top: -250px;
 
-  right: -175px;
-  bottom: -200px;
+  transform: translate(-250px, -250px);
+
+  animation: circleAnimation 1s ease forwards;
 }
 
 .button-container {
@@ -148,6 +180,7 @@ body {
   justify-content: center;
   align-items: center;
 
+  margin-top: clamp(20px, 5%, 40px);
   width: 100%;
 
   gap: 16px;
@@ -175,6 +208,9 @@ body {
 
   text-decoration: none;
 
+  transform: translate(-50px, 0);
+  opacity: 0;
+
   transition: transform 0.2s ease;
 }
 
@@ -185,6 +221,7 @@ body {
   left: 0;
   bottom: 0;
   width: 0;
+  border-radius: 10px;
   background: var(--button-before-color);
   z-index: -1;
   transition: width 0.5s ease-in-out;
@@ -248,4 +285,47 @@ body {
 
 .container a:hover img {
   left: calc(100% - 30px);
+}
+
+@media (max-width: 850px) {
+  .container h1 {
+    font-size: 48px;
+  }
+
+  .container p {
+    font-size: 16px;
+  }
+
+  .logo {
+    width: 300px;
+  }
+
+  .google-circle.green {
+    right: -300px;
+  }
+
+  .google-circle.blue {
+    right: -300px;
+  }
+
+  .google-circle.yellow {
+    left: -300px;
+  }
+
+  .google-circle.red {
+    left: -150px;
+  }
+}
+
+@keyframes circleAnimation {
+  to {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes fadeRight {
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
 }

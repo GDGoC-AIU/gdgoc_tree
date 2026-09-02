@@ -1,4 +1,4 @@
-fetch("/src/links.json")
+fetch("/src/json/links.json")
   .then((response) => response.json())
   .then((links) => {
     links.forEach(({ name, link }) => {

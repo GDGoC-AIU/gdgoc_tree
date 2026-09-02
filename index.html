@@ -5,48 +5,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>redirect</title>
+    <link rel="icon" type="image/png" href="./assets/icons/gdgoc-logo.png">
     <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
     <div class="container-background">
         <div class="container">
-            <div class="google-circle blue"> </div>
-            <div class="google-circle red"> </div>
-            <div class="google-circle green"> </div>
-            <div class="google-circle yellow"> </div>
+            <div class="google-circle red"></div>
+            <div class="google-circle yellow"></div>
+            <div class="google-circle green"></div>
+            <div class="google-circle blue"></div>
 
             <div class="text align-left">
-                <image class="logo" src="./assets/icons/GDGOnCampus-Horizontal-logo.png" alt="gdgoc-logo" />
+                <img class="logo" src="./assets/icons/GDGOnCampus-Horizontal-logo.png" alt="gdgoc-logo" /> </img>
 
-                </image>
-                <h1>Stay Connected!</h1>
-                <p>Click the button below to be redirected to our Social Media profiles.</p>
+                <h1 id="title">Stay Connected!</h1>
+                <p id="description">Click the button below to be redirected to our Social Media profiles.</p>
             </div>
 
             <div class="row align-center">
-                <div class="column button-container">
-                    <a id="instagram" class="red" href="">
-                        <img src="./assets/icons/instagram-icon.png" alt="instagram" />
-                        <span>Instagram</span>
-                    </a>
-
-                    <a id="discord" class="blue" href="">
-                        <img src="./assets/icons/discord-icon.jpg" alt="discord" />
-                        <span>Discord</span>
-                    </a>
-
-                    <a id="website" class="yellow" href="">
-                        <img src="./assets/icons/vite.svg" alt="website" />
-                        <span>Website</span>
-                    </a>
+                <div class="column button-container links">
                 </div>
             </div>
         </div>
     </div>
 
 
-    <script type="module" src="/src/redirect.js"></script>
+    <script type="module" src="/src/js/fillLinks.js"></script>
+    <script type="module" src="/src/js/redirect.js"></script>
+    <script type="module" src="/src/js/fillText.js"></script>
 </body>
 
 </html>
