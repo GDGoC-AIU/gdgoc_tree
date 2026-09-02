@@ -2,23 +2,23 @@
   {
     "text": "Instagram", 
     "link": "https://www.instagram.com/gdgoncampusaiu/", 
-    "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg", 
+    "icon": "https://github.com/GDGoC-AIU/gdgoc_tree/blob/main/assets/icons/instagram-icon.png?raw=true", 
     "color": "#ea4335"
 },
   {
     "text": "Discord", 
     "link": "https://discord.com", 
-    "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg", 
+    "icon": "https://github.com/GDGoC-AIU/gdgoc_tree/blob/main/assets/icons/discord-icon.png?raw=true", 
     "color": "#4285f4" },
   {
     "text": "LinkedIn", 
     "link": "https://linkedin.com/company/GDGoC-AIU", 
-    "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg", 
+    "icon": "https://github.com/GDGoC-AIU/gdgoc_tree/blob/main/assets/icons/linkedin-icon.png?raw=true", 
     "color": "#4285f4" },
   {
     "text": "Facebook", 
     "link": "https://www.facebook.com/GDGOnCampusAIU", 
-    "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg", 
+    "icon": "https://github.com/GDGoC-AIU/gdgoc_tree/blob/main/assets/icons/facebook-icon.png?raw=true", 
     "color": "#4285f4" },
   {
     "text": "Bevy", 
@@ -28,11 +28,11 @@
   {
     "text": "Github", 
     "link": "https://github.com/GDGoC-AIU", 
-    "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg", 
+    "icon": "https://github.com/GDGoC-AIU/gdgoc_tree/blob/main/assets/icons/github-icon.png?raw=true", 
     "color": "gray" },
   {
     "text": "Website", 
     "link": "https://gdgoc-aiu.github.io/chapter-website/", 
-    "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg", 
+    "icon": "https://github.com/GDGoC-AIU/gdgoc_tree/blob/main/assets/icons/github-icon.png?raw=true", 
     "color": "#f9ab00" }
 ]
