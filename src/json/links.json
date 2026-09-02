@@ -1,9 +1,38 @@
 [
-  {"text": "Instagram", "link": "https://www.instagram.com/gdgoncampusaiu/", "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg", "color": "red"},
-  {"text": "Discord", "link": "https://discord.com", "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg", "color": "blue" },
-  {"text": "LinkedIn", "link": "https://linkedin.com/company/GDGoC-AIU", "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg", "color": "blue" },
-  {"text": "Facebook", "link": "https://www.facebook.com/GDGOnCampusAIU", "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg", "color": "blue" },
-  {"text": "Bevy", "link": "https://gdg.community.dev/gdg-on-campus-alamein-international-university/", "icon": "https://github.com/GDGoC-AIU/.github/blob/main/assets/GDGoC-logo.png?raw=true", "color": "green" },
-  {"text": "Github", "link": "https://github.com/GDGoC-AIU", "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg", "color": "gray" },
-  {"text": "Website", "link": "https://gdgoc-aiu.github.io/chapter-website/", "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg", "color": "yellow" }
+  {
+    "text": "Instagram", 
+    "link": "https://www.instagram.com/gdgoncampusaiu/", 
+    "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg", 
+    "color": "#ea4335"
+},
+  {
+    "text": "Discord", 
+    "link": "https://discord.com", 
+    "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg", 
+    "color": "#4285f4" },
+  {
+    "text": "LinkedIn", 
+    "link": "https://linkedin.com/company/GDGoC-AIU", 
+    "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg", 
+    "color": "#4285f4" },
+  {
+    "text": "Facebook", 
+    "link": "https://www.facebook.com/GDGOnCampusAIU", 
+    "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg", 
+    "color": "#4285f4" },
+  {
+    "text": "Bevy", 
+    "link": "https://gdg.community.dev/gdg-on-campus-alamein-international-university/", 
+    "icon": "./assets/icons/GDGoC-logo1.png", 
+    "color": "#34a853" },
+  {
+    "text": "Github", 
+    "link": "https://github.com/GDGoC-AIU", 
+    "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg", 
+    "color": "gray" },
+  {
+    "text": "Website", 
+    "link": "https://gdgoc-aiu.github.io/chapter-website/", 
+    "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg", 
+    "color": "#f9ab00" }
 ]

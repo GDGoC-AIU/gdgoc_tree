@@ -229,20 +229,8 @@ body {
   transition: width 0.5s ease-in-out;
 }
 
-.container a.blue {
-  --button-before-color: #4285f4;
-}
-
-.container a.green {
-  --button-before-color: #34a853;
-}
-
-.container a.red {
-  --button-before-color: #ea4335;
-}
-
-.container a.yellow {
-  --button-before-color: #f9ab00;
+.container a::before {
+  background: var(--button-before-color);
 }
 
 .container a:hover::before {

@@ -7,7 +7,7 @@ fetch("./src/json/links.json")
       const a = document.createElement("a");
 
       a.id = link.name;
-      a.className = link.color;
+      a.style.setProperty("--button-before-color", link.color);
       a.href = link.link;
 
       const img = document.createElement("img");
