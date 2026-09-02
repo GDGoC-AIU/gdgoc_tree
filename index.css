@@ -1,7 +1,7 @@
 html,
 body {
   margin: 0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .row {
@@ -52,14 +52,15 @@ body {
 }
 
 .container-background {
-  height: calc(100vh - 40px);
-  box-sizing: border-box;
+  min-height: calc(100vh - 40px);
+  min-height: calc(100dvh - 40px);
+  height: auto;
+
   margin: 20px;
 
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
-  flex-direction: row;
 
   background: linear-gradient(
     to bottom right,
@@ -74,22 +75,23 @@ body {
   );
 
   padding: 5px;
-
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .container {
   z-index: 100;
+
   display: flex;
   flex-direction: column;
 
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
 
   width: 100%;
-  min-height: 100%;
-  box-sizing: border-box;
+  min-height: calc(100vh - 40px);
+  min-height: calc(100dvh - 40px);
+  height: auto;
 
   padding: 20px;
 
@@ -103,6 +105,8 @@ body {
 .container h1 {
   font-size: 96px;
   margin: 0;
+
+  padding-top: 150px;
 
   transform: translateX(-50px);
   opacity: 0;
@@ -192,7 +196,7 @@ body {
   position: relative;
   z-index: 0;
 
-  width: clamp(300px, 75%, 400px);
+  width: clamp(200px, 75%, 400px);
   height: 50px;
 
   font-size: 16px;
@@ -288,6 +292,10 @@ body {
 }
 
 @media (max-width: 850px) {
+  .container-background {
+    margin: 10px;
+  }
+
   .container h1 {
     font-size: 48px;
   }
