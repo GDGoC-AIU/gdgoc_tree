@@ -1,0 +1,5 @@
+[
+  {"text": "Instagram", "link": "https://instagram.com", "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg", "color": "red"},
+  {"text": "Discord", "link": "https://discord.com", "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/discord.svg", "color": "blue" },
+  {"text": "Website", "link": "https://github.com/GDGoC-AIU/chapter-website", "icon": "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg", "color": "yellow" }
+]
