@@ -1,4 +1,4 @@
-fetch("/src/json/links.json")
+fetch("./src/json/links.json")
   .then((response) => response.json())
   .then((links) => {
     const container = document.querySelector(".links");
