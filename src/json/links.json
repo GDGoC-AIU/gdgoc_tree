@@ -1,38 +1,51 @@
 [
   {
-    "text": "Instagram", 
-    "link": "https://www.instagram.com/gdgoncampusaiu/", 
-    "icon": "https://github.com/GDGoC-AIU/gdgoc_tree/blob/main/assets/icons/instagram-icon.png?raw=true", 
+    "name": "instagram",
+    "text": "Instagram",
+    "link": "https://www.instagram.com/gdgoncampusaiu/",
+    "icon": "./assets/icons/instagram-icon.png",
     "color": "#ea4335"
-},
+  },
   {
-    "text": "Discord", 
-    "link": "https://discord.com", 
-    "icon": "https://github.com/GDGoC-AIU/gdgoc_tree/blob/main/assets/icons/discord-icon.png?raw=true", 
-    "color": "#4285f4" },
+    "name": "whatsapp",
+    "text": "WhatsApp",
+    "link": "https://chat.whatsapp.com/Lx0mHZvlvWm8U2WOgy0djZ",
+    "icon": "./assets/icons/whatsapp-icon.png",
+    "color": "#25d366"
+  },
   {
-    "text": "LinkedIn", 
-    "link": "https://linkedin.com/company/GDGoC-AIU", 
-    "icon": "https://github.com/GDGoC-AIU/gdgoc_tree/blob/main/assets/icons/linkedin-icon.png?raw=true", 
-    "color": "#4285f4" },
+    "name": "linkedin",
+    "text": "LinkedIn",
+    "link": "https://linkedin.com/company/GDGoC-AIU",
+    "icon": "./assets/icons/linkedin-icon.png",
+    "color": "#0a66c2"
+  },
   {
-    "text": "Facebook", 
-    "link": "https://www.facebook.com/GDGOnCampusAIU", 
-    "icon": "https://github.com/GDGoC-AIU/gdgoc_tree/blob/main/assets/icons/facebook-icon.png?raw=true", 
-    "color": "#4285f4" },
+    "name": "facebook",
+    "text": "Facebook",
+    "link": "https://www.facebook.com/GDGOnCampusAIU",
+    "icon": "./assets/icons/facebook-icon.png",
+    "color": "#1877f2"
+  },
   {
-    "text": "Bevy", 
-    "link": "https://gdg.community.dev/gdg-on-campus-alamein-international-university/", 
-    "icon": "./assets/icons/GDGoC-icon.png", 
-    "color": "#34a853" },
+    "name": "bevy",
+    "text": "Bevy",
+    "link": "https://gdg.community.dev/gdg-on-campus-alamein-international-university/",
+    "icon": "./assets/icons/GDGoC-icon.png",
+    "color": "#34a853"
+  },
   {
-    "text": "Github", 
-    "link": "https://github.com/GDGoC-AIU", 
-    "icon": "https://github.com/GDGoC-AIU/gdgoc_tree/blob/main/assets/icons/github-icon.png?raw=true", 
-    "color": "gray" },
+    "name": "github",
+    "text": "GitHub",
+    "link": "https://github.com/GDGoC-AIU",
+    "icon": "./assets/icons/github-icon.png",
+    "color": "#24292e"
+  },
   {
-    "text": "Website", 
-    "link": "https://gdgoc-aiu.github.io/chapter-website/", 
-    "icon": "https://github.com/GDGoC-AIU/gdgoc_tree/blob/main/assets/icons/WWW-icon.png?raw=true", 
-    "color": "#f9ab00" }
+    "name": "website",
+    "text": "Website",
+    "link": "https://gdgoc-aiu.github.io/chapter-website/",
+    "icon": "./assets/icons/WWW-icon.png",
+    "color": "#f9ab00"
+  }
 ]

@@ -1,0 +1,130 @@
+{
+  "meta": {
+    "title": "Stay Connected!",
+    "description": "Click the button below to be redirected to our Social Media profiles."
+  },
+  "items": [
+    {
+      "type": "img",
+      "src": "./assets/icons/gdgoc-logo.png",
+      "active": true
+    },
+    {
+      "type": "button",
+      "id": "core-team-applications",
+      "text": "Core Team Applications Open!",
+      "link": "https://docs.google.com/forms/d/e/1FAIpQLScMAGvX80BMqQe4AEbhVsr7TEsWVdIA5m3GhgHjtuOl7XNDQA/viewform?usp=dialog",
+      "color": "red",
+      "active": true
+    },
+    {
+      "type": "text",
+      "variant": "heading",
+      "text": "Community & Groups",
+      "active": true
+    },
+    {
+      "type": "button",
+      "id": "whatsapp",
+      "text": "WhatsApp",
+      "link": "https://chat.whatsapp.com/Lx0mHZvlvWm8U2WOgy0djZ",
+      "icon": "./assets/icons/whatsapp-icon.png",
+      "color": "#25d366",
+      "active": true
+    },
+    {
+      "type": "button",
+      "id": "discord",
+      "text": "Discord",
+      "link": "https://discord.com",
+      "icon": "./assets/icons/discord-icon.png",
+      "color": "#4285f4",
+      "active": true
+    },
+    {
+      "type": "divider",
+      "color": "red",
+      "active": true
+    },
+    {
+      "type": "text",
+      "variant": "heading",
+      "text": "Official Channels",
+      "active": true
+    },
+    {
+      "type": "button",
+      "id": "instagram",
+      "text": "Instagram",
+      "link": "https://www.instagram.com/gdgoncampusaiu/",
+      "icon": "./assets/icons/instagram-icon.png",
+      "color": "#ea4335",
+      "active": true
+    },
+    {
+      "type": "button",
+      "id": "linkedin",
+      "text": "LinkedIn",
+      "link": "https://linkedin.com/company/GDGoC-AIU",
+      "icon": "./assets/icons/linkedin-icon.png",
+      "color": "#4285f4",
+      "active": true
+    },
+    {
+      "type": "button",
+      "id": "facebook",
+      "text": "Facebook",
+      "link": "https://www.facebook.com/GDGOnCampusAIU",
+      "icon": "./assets/icons/facebook-icon.png",
+      "color": "#4285f4",
+      "active": true
+    },
+    {
+      "type": "button",
+      "id": "bevy",
+      "text": "Bevy",
+      "link": "https://gdg.community.dev/gdg-on-campus-alamein-international-university/",
+      "icon": "./assets/icons/GDGoC-icon.png",
+      "color": "#34a853",
+      "active": true
+    },
+    {
+      "type": "button",
+      "id": "github",
+      "text": "GitHub",
+      "link": "https://github.com/GDGoC-AIU",
+      "icon": "./assets/icons/github-icon.png",
+      "color": "gray",
+      "active": true
+    },
+    {
+      "type": "button",
+      "id": "website",
+      "text": "Website",
+      "link": "https://gdgoc-aiu.github.io/chapter-website/",
+      "icon": "./assets/icons/WWW-icon.png",
+      "color": "#f9ab00",
+      "active": true
+    },
+    {
+      "type": "divider",
+      "color": "red",
+      "active": true
+    },
+    {
+      "type": "text",
+      "variant": "heading",
+      "text": "Contact The Organizer",
+      "active": true
+    },
+    {
+      "type": "button",
+      "id": "mail",
+      "text": "Contact Organizers",
+      "link": "mailto:Mohamed.tarek.2025@aiu.edu.eg",
+      "icon": "./assets/icons/WWW-icon.png",
+      "color": "#f9ab00",
+      "active": true
+    }
+  ]
+}

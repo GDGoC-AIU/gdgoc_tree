@@ -229,10 +229,6 @@ body {
   transition: width 0.5s ease-in-out;
 }
 
-.container a::before {
-  background: var(--button-before-color);
-}
-
 .container a:hover::before {
   width: 100%;
 }
@@ -275,6 +271,81 @@ body {
 
 .container a:hover img {
   left: calc(100% - 30px);
+}
+
+/* ============================================================
+   Linktree-like Multi-Type Components (img, divider, text)
+   ============================================================ */
+.tree-img-card {
+  display: flex;
+  flex-direction: column;
+  width: clamp(200px, 75%, 400px);
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background: white;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transform: translate(-50px, 0);
+  opacity: 0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tree-img-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.tree-img-card img {
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  object-fit: contain;
+  background: #fdfdfd;
+  display: block;
+  padding: 12px;
+}
+
+.tree-img-caption {
+  padding: 8px 14px;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+  background: #fafafa;
+  border-top: 1px solid #eee;
+}
+
+.tree-divider {
+  width: clamp(160px, 50%, 280px);
+  height: 2px;
+  background: #e0e0e0;
+  border-radius: 2px;
+  margin: 4px auto;
+  transform: translate(-50px, 0);
+  opacity: 0;
+}
+
+.tree-text {
+  width: clamp(200px, 75%, 400px);
+  text-align: center;
+  transform: translate(-50px, 0);
+  opacity: 0;
+}
+
+.tree-heading {
+  font-size: 18px;
+  font-weight: bold;
+  color: #202124;
+  margin: 6px 0 2px;
+}
+
+.tree-paragraph {
+  font-size: 14px;
+  color: #666;
+  margin: 4px 0;
+  line-height: 1.4;
 }
 
 @media (max-width: 850px) {
