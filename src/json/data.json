@@ -120,7 +120,7 @@
     {
       "type": "button",
       "id": "mail",
-      "text": "Contact Organizers",
+      "text": "Contact Organizer",
       "link": "mailto:Mohamed.tarek.2025@aiu.edu.eg",
       "icon": "./assets/icons/outlook-icon.png",
       "color": "#4285f4",
