@@ -39,8 +39,10 @@ fetch("./src/json/data.json")
           a.id = item.id || item.name || `btn-${visibleIndex}`;
           a.style.setProperty("--button-before-color", item.color || "#4285f4");
           a.href = item.link || "#";
-          a.target = "_blank";
-          a.rel = "noopener noreferrer";
+          if (item.link && !item.link.startsWith("mailto:") && !item.link.startsWith("tel:")) {
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+          }
 
           if (item.icon) {
             const img = document.createElement("img");
