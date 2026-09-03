@@ -122,8 +122,8 @@
       "id": "mail",
       "text": "Contact Organizers",
       "link": "mailto:Mohamed.tarek.2025@aiu.edu.eg",
-      "icon": "./assets/icons/WWW-icon.png",
-      "color": "#f9ab00",
+      "icon": "./assets/icons/outlook-icon.png",
+      "color": "#4285f4",
       "active": true
     }
   ]
