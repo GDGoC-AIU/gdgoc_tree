@@ -33,15 +33,6 @@
       "active": true
     },
     {
-      "type": "button",
-      "id": "discord",
-      "text": "Discord",
-      "link": "https://discord.com",
-      "icon": "./assets/icons/discord-icon.png",
-      "color": "#4285f4",
-      "active": true
-    },
-    {
       "type": "divider",
       "color": "red",
       "active": true
