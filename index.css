@@ -52,6 +52,8 @@ body {
 }
 
 .container-background {
+  position: relative;
+
   min-height: calc(100vh - 40px);
   min-height: calc(100dvh - 40px);
   height: auto;
@@ -62,21 +64,54 @@ body {
   align-items: stretch;
   justify-content: center;
 
-  background: linear-gradient(
-    to bottom right,
-    #ea4335 0%,
-    #ea4335 24%,
-    #34a853 24%,
-    #34a853 49%,
-    #f9ab00 49%,
-    #f9ab00 74%,
-    #4285f4 74%,
-    #4285f4 100%
-  );
+  background: transparent;
 
-  padding: 5px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+
+  padding: 5px;
+
+  overflow: hidden;
+}
+
+.container-background-border {
+  position: absolute;
+
+  width: 10000px;
+  height: 10000px;
+
+  top: 50%;
+  left: 50%;
+
+  background: conic-gradient(
+    #ea4335 0deg 90deg,
+    #f9ab00 90deg 180deg,
+    #34a853 180deg 270deg,
+    #4285f4 270deg 360deg
+  );
+
+  animation: rotate-background 20s linear infinite;
+}
+
+.particle {
+  position: absolute;
+
+  width: 4px;
+  height: 4px;
+
+  border-radius: 50%;
+
+  background: black;
+
+  box-shadow:
+    0 0 8px black,
+    0 0 15px black;
+
+  opacity: 0.3;
+
+  z-index: -1;
+
+  animation: particle-drift ease infinite;
 }
 
 .container {
@@ -106,7 +141,6 @@ body {
 
   padding-top: 150px;
 
-  transform: translateX(-50px);
   opacity: 0;
   animation: fadeRight 1s ease 0.7s forwards;
 }
@@ -115,7 +149,6 @@ body {
   font-size: 24px;
   margin-top: 0;
 
-  transform: translateX(-50px);
   opacity: 0;
   animation: fadeRight 1s ease 0.8s forwards;
 }
@@ -210,7 +243,6 @@ body {
 
   text-decoration: none;
 
-  transform: translate(-50px, 0);
   opacity: 0;
 
   transition: transform 0.2s ease;
@@ -227,10 +259,6 @@ body {
   background: var(--button-before-color);
   z-index: -1;
   transition: width 0.5s ease-in-out;
-}
-
-.container a:hover::before {
-  width: 100%;
 }
 
 .container a img {
@@ -266,7 +294,15 @@ body {
 }
 
 .container a:hover {
-  transform: scale(1.1);
+  transform: translateX(0) scale(1.05);
+}
+
+.container a:active {
+  transform: translateX(0) scale(0.95);
+}
+
+.container a:hover::before {
+  width: 100%;
 }
 
 .container a:hover img {
@@ -276,6 +312,7 @@ body {
 /* ============================================================
    Linktree-like Multi-Type Components (img, divider, text)
    ============================================================ */
+
 .tree-img-card {
   display: flex;
   flex-direction: column;
@@ -287,9 +324,10 @@ body {
   text-decoration: none;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
-  transform: translate(-50px, 0);
   opacity: 0;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .tree-img-card:hover {
@@ -323,14 +361,14 @@ body {
   background: #e0e0e0;
   border-radius: 2px;
   margin: 4px auto;
-  transform: translate(-50px, 0);
   opacity: 0;
+
+  z-index: 100;
 }
 
 .tree-text {
   width: clamp(200px, 75%, 400px);
   text-align: center;
-  transform: translate(-50px, 0);
   opacity: 0;
 }
 
@@ -390,8 +428,35 @@ body {
 }
 
 @keyframes fadeRight {
+  from {
+    transform: translateX(-50px);
+  }
   to {
     transform: translateX(0px);
     opacity: 1;
+  }
+}
+
+@keyframes rotate-background {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes particle-drift {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-120px);
+  }
+
+  100% {
+    transform: translateY(0px);
   }
 }
