@@ -39,7 +39,11 @@ fetch("./src/json/data.json")
           a.id = item.id || item.name || `btn-${visibleIndex}`;
           a.style.setProperty("--button-before-color", item.color || "#4285f4");
           a.href = item.link || "#";
-          if (item.link && !item.link.startsWith("mailto:") && !item.link.startsWith("tel:")) {
+          if (
+            item.link &&
+            !item.link.startsWith("mailto:") &&
+            !item.link.startsWith("tel:")
+          ) {
             a.target = "_blank";
             a.rel = "noopener noreferrer";
           }
@@ -114,6 +118,12 @@ fetch("./src/json/data.json")
         // Apply exact staggered fly-in animation in sequence
         el.style.animation = "fadeRight 0.6s ease forwards";
         el.style.animationDelay = `${1 + visibleIndex * 0.12}s`;
+
+        el.addEventListener("animationend", () => {
+          el.style.animation = "none";
+          el.style.opacity = "1";
+        });
+
         visibleIndex++;
 
         container.appendChild(el);

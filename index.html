@@ -17,7 +17,11 @@
 
 <body>
     <div class="container-background">
+        <div class="container-background-border">
+        </div>
         <div class="container">
+            <div class="particles"></div>
+
             <div class="google-circle red"></div>
             <div class="google-circle yellow"></div>
             <div class="google-circle green"></div>
@@ -30,7 +34,7 @@
                 <p id="description">Click the button below to be redirected to our Social Media profiles.</p>
             </div>
 
-            <div class="row align-center">
+            <div id="animation-layer" class="row align-center">
                 <div class="column button-container links">
                 </div>
             </div>
@@ -38,6 +42,7 @@
     </div>
 
     <script type="module" src="./src/js/fillLinks.js"></script>
+    <script type="module" src="./src/js/background.js"></script>
 </body>
 
 </html>
