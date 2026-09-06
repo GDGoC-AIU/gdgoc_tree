@@ -1,12 +1,20 @@
 {
   "meta": {
     "title": "Stay Connected!",
-    "description": "Click the button below to be redirected to our Social Media profiles."
+    "description": "Click the button below to be redirected to our Social Media profiles.",
+    "defaultTheme": "pixel"
   },
   "items": [
     {
       "type": "img",
+      "src": "./assets/icons/GDGoC-logo-pixel.png",
+      "theme": "pixel",
+      "active": true
+    },
+    {
+      "type": "img",
       "src": "./assets/icons/gdgoc-logo.png",
+      "theme": "classic",
       "active": true
     },
     {
