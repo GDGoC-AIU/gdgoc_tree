@@ -169,83 +169,83 @@
    Pixel Art Mode Overrides for Theme Switcher
    -------------------------------------------------------------------------- */
 [data-theme="pixel"] .theme-menu-btn {
-  font-family: 'Press Start 2P', monospace, sans-serif !important;
-  font-size: 9px !important;
-  border-radius: 0 !important;
-  border: 3px solid #000000 !important;
-  box-shadow: 3px 3px 0px #000000 !important;
-  background: #ffffff !important;
-  color: #000000 !important;
-  padding: 8px 12px !important;
+  font-family: "Press Start 2P", monospace, sans-serif;
+  font-size: 9px;
+  border-radius: 0;
+  border: 3px solid #000000;
+  box-shadow: 3px 3px 0px #000000;
+  background: #ffffff;
+  color: #000000;
+  padding: 8px 12px;
 }
 
 [data-theme="pixel"] .theme-menu-btn:hover {
-  transform: translate(-1px, -1px) !important;
-  box-shadow: 4px 4px 0px #000000 !important;
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px #000000;
 }
 
 [data-theme="pixel"] .theme-menu-btn:active {
-  transform: translate(2px, 2px) !important;
-  box-shadow: 1px 1px 0px #000000 !important;
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0px #000000;
 }
 
 [data-theme="pixel"] .theme-label {
-  font-family: 'Press Start 2P', monospace, sans-serif !important;
-  font-size: 9px !important;
+  font-family: "Press Start 2P", monospace, sans-serif;
+  font-size: 9px;
 }
 
 [data-theme="pixel"] .theme-dropdown {
-  font-family: 'Press Start 2P', monospace, sans-serif !important;
-  border-radius: 0 !important;
-  border: 3px solid #000000 !important;
-  box-shadow: 5px 5px 0px #000000 !important;
-  background: #fdfbf7 !important;
+  font-family: "Press Start 2P", monospace, sans-serif;
+  border-radius: 0;
+  border: 3px solid #000000;
+  box-shadow: 5px 5px 0px #000000;
+  background: #fdfbf7;
   min-width: 250px;
 }
 
 [data-theme="pixel"] .theme-dropdown-header {
-  font-family: 'Press Start 2P', monospace, sans-serif !important;
-  font-size: 8px !important;
-  color: #000000 !important;
+  font-family: "Press Start 2P", monospace, sans-serif;
+  font-size: 8px;
+  color: #000000;
   border-bottom: 2px solid #000000;
   margin-bottom: 4px;
 }
 
 [data-theme="pixel"] .theme-option {
-  border-radius: 0 !important;
-  font-family: 'Press Start 2P', monospace, sans-serif !important;
-  padding: 8px 10px !important;
+  border-radius: 0;
+  font-family: "Press Start 2P", monospace, sans-serif;
+  padding: 8px 10px;
 }
 
 [data-theme="pixel"] .theme-option:hover {
-  background: #000000 !important;
-  color: #ffffff !important;
+  background: #000000;
+  color: #ffffff;
 }
 
 [data-theme="pixel"] .theme-option:hover .option-title,
 [data-theme="pixel"] .theme-option:hover .option-sub,
 [data-theme="pixel"] .theme-option:hover .option-check {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 [data-theme="pixel"] .option-title {
-  font-family: 'Press Start 2P', monospace, sans-serif !important;
-  font-size: 9px !important;
+  font-family: "Press Start 2P", monospace, sans-serif;
+  font-size: 9px;
 }
 
 [data-theme="pixel"] .option-sub {
-  font-family: 'Press Start 2P', monospace, sans-serif !important;
-  font-size: 7px !important;
+  font-family: "Press Start 2P", monospace, sans-serif;
+  font-size: 7px;
   line-height: 1.5;
   margin-top: 3px;
 }
 
 [data-theme="pixel"] .theme-option.active {
-  background: #ece8df !important;
+  background: #ece8df;
 }
 
 [data-theme="pixel"] .theme-option.active .option-check {
-  color: #ea4335 !important;
+  color: #ea4335;
 }
 
 /* --------------------------------------------------------------------------
@@ -267,6 +267,6 @@
   }
 
   [data-theme="pixel"] .theme-menu-btn {
-    padding: 6px 10px !important;
+    padding: 6px 10px;
   }
 }

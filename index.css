@@ -96,18 +96,14 @@ body {
 .particle {
   position: absolute;
 
-  width: 4px;
-  height: 4px;
-
   border-radius: 50%;
 
   background: black;
 
-  box-shadow:
-    0 0 8px black,
-    0 0 15px black;
-
-  opacity: 0.3;
+  width: 6px;
+  height: 6px;
+  opacity: 0.65;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25);
 
   z-index: -1;
 
@@ -146,7 +142,7 @@ body {
 }
 
 .container p {
-  font-size: 24px;
+  font-size: 32px;
   margin-top: 0;
 
   opacity: 0;
@@ -356,9 +352,10 @@ body {
 }
 
 .tree-divider {
+  --color: #e0e0e0;
   width: clamp(160px, 50%, 280px);
   height: 2px;
-  background: #e0e0e0;
+  background: var(--color);
   border-radius: 2px;
   margin: 4px auto;
   opacity: 0;

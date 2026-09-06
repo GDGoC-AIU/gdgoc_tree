@@ -145,7 +145,7 @@ export function renderTree(data) {
         const div = document.createElement("div");
         div.className = "tree-divider";
         if (item.color) {
-          div.style.backgroundColor = item.color;
+          div.style.setProperty("--color", item.color);
         }
         el = div;
         break;
