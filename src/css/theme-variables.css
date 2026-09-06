@@ -1,0 +1,82 @@
+/**
+ * ============================================================================
+ * GDGoC Tree - Theme Variables System
+ * ============================================================================
+ */
+
+:root,
+[data-theme="classic"] {
+  /* Google Brand Colors */
+  --color-google-blue: #4285f4;
+  --color-google-red: #ea4335;
+  --color-google-yellow: #f9ab00;
+  --color-google-green: #34a853;
+
+  /* Typography */
+  --theme-font-family: Arial, sans-serif;
+  --theme-font-heading: Arial, sans-serif;
+  --theme-title-size: 96px;
+  --theme-title-size-mobile: 48px;
+  --theme-desc-size: 24px;
+  --theme-desc-size-mobile: 16px;
+
+  /* Palette & Backgrounds */
+  --theme-text-color: #333333;
+  --theme-heading-color: #202124;
+  --theme-desc-color: #666666;
+  --theme-container-bg: #ffffff;
+  --theme-card-bg: #ffffff;
+  --theme-border-color: #cccccc;
+  --theme-divider-color: #e0e0e0;
+
+  /* Button Tokens */
+  --theme-btn-bg: #ffffff;
+  --theme-btn-color: #000000;
+  --theme-btn-border: 1px solid #cccccc;
+  --theme-btn-radius: 20px;
+  --theme-btn-height: 50px;
+  --theme-btn-font-size: 18px;
+  --theme-btn-font-weight: bold;
+  --theme-btn-shadow: none;
+
+  /* Google Circles */
+  --theme-circle-radius: 50%;
+  --theme-circle-clip: none;
+
+  /* Particles */
+  --theme-particle-radius: 50%;
+  --theme-particle-size: 4px;
+}
+
+[data-theme="pixel"] {
+  /* Pixel / 8-Bit Typography */
+  --theme-font-family: 'Press Start 2P', monospace, sans-serif;
+  --theme-font-heading: 'Press Start 2P', monospace, sans-serif;
+  --theme-title-size: 26px;
+  --theme-title-size-mobile: 18px;
+  --theme-desc-size: 11px;
+  --theme-desc-size-mobile: 9px;
+
+  /* Palette & Backgrounds */
+  --theme-text-color: #111111;
+  --theme-heading-color: #000000;
+  --theme-desc-color: #333333;
+  --theme-container-bg: #f8f9fa;
+  --theme-card-bg: #ffffff;
+  --theme-border-color: #000000;
+  --theme-divider-color: #000000;
+
+  /* Retro Button Tokens */
+  --theme-btn-bg: #ffffff;
+  --theme-btn-color: #000000;
+  --theme-btn-border: 3px solid #000000;
+  --theme-btn-radius: 0px;
+  --theme-btn-height: 54px;
+  --theme-btn-font-size: 11px;
+  --theme-btn-font-weight: 700;
+  --theme-btn-shadow: 4px 4px 0px #000000;
+
+  /* Pixel Particles */
+  --theme-particle-radius: 0px;
+  --theme-particle-size: 6px;
+}

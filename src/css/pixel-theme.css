@@ -1,0 +1,235 @@
+/**
+ * ============================================================================
+ * GDGoC Tree - Pixel Art (8-Bit Retro Gaming) Theme
+ * ============================================================================
+ * Pure code implementation of 8-bit arcade / NES aesthetic.
+ * Strictly scoped under [data-theme="pixel"] to protect original classic styles.
+ * Does NOT touch .container-background-border (outer rainbow frame).
+ * ============================================================================
+ */
+
+/* --------------------------------------------------------------------------
+   1. Global Pixel Art Typography & Rendering
+   -------------------------------------------------------------------------- */
+[data-theme="pixel"] body {
+  font-family: 'Press Start 2P', monospace, sans-serif !important;
+  image-rendering: pixelated;
+}
+
+[data-theme="pixel"] * {
+  image-rendering: pixelated;
+}
+
+/* --------------------------------------------------------------------------
+   2. Main Container Styling & Subtle Retro CRT Scanlines
+   -------------------------------------------------------------------------- */
+[data-theme="pixel"] .container {
+  background: #fdfbf7 !important;
+  border-radius: 0px !important;
+  position: relative;
+}
+
+/* Subtle CRT Scanline effect (pure CSS, pointer-events none) */
+[data-theme="pixel"] .container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.02) 0px,
+    rgba(0, 0, 0, 0.02) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  z-index: 50;
+}
+
+/* --------------------------------------------------------------------------
+   3. Google Circles -> 8-Bit Stepped Pixel Shapes
+   -------------------------------------------------------------------------- */
+[data-theme="pixel"] .google-circle {
+  border-radius: 0 !important;
+  /* Authentic 8-bit stepped circle silhouette (blocky pixel stair-stepping) */
+  clip-path: polygon(
+    30% 0%, 70% 0%,
+    70% 5%, 85% 5%,
+    85% 15%, 95% 15%,
+    95% 30%, 100% 30%,
+    100% 70%, 95% 70%,
+    95% 85%, 85% 85%,
+    85% 95%, 70% 95%,
+    70% 100%, 30% 100%,
+    30% 95%, 15% 95%,
+    15% 85%, 5% 85%,
+    5% 70%, 0% 70%,
+    0% 30%, 5% 30%,
+    5% 15%, 15% 15%,
+    15% 5%, 30% 5%
+  ) !important;
+  filter: drop-shadow(4px 4px 0px rgba(0, 0, 0, 0.15));
+}
+
+/* --------------------------------------------------------------------------
+   4. Floating Particles -> 8-Bit Square Pixels
+   -------------------------------------------------------------------------- */
+[data-theme="pixel"] .particle {
+  border-radius: 0 !important;
+  width: 6px !important;
+  height: 6px !important;
+  opacity: 0.65 !important;
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* --------------------------------------------------------------------------
+   5. Header & Text Typography (8-Bit NES Style)
+   -------------------------------------------------------------------------- */
+[data-theme="pixel"] .container h1,
+[data-theme="pixel"] #title {
+  font-family: 'Press Start 2P', monospace, sans-serif !important;
+  font-size: 32px !important;
+  line-height: 1.5 !important;
+  letter-spacing: -1px;
+  color: #1a1a1a !important;
+  text-shadow: 3px 3px 0px #4285f4, 6px 6px 0px rgba(0, 0, 0, 0.15) !important;
+  padding-top: 140px !important;
+}
+
+[data-theme="pixel"] .container p,
+[data-theme="pixel"] #description {
+  font-family: 'Press Start 2P', monospace, sans-serif !important;
+  font-size: 11px !important;
+  line-height: 2 !important;
+  color: #4a4a4a !important;
+  max-width: 550px;
+  margin-left: 0;
+  margin-top: 12px !important;
+}
+
+[data-theme="pixel"] .logo {
+  image-rendering: pixelated;
+}
+
+/* --------------------------------------------------------------------------
+   6. 8-Bit Retro Buttons & Links
+   -------------------------------------------------------------------------- */
+[data-theme="pixel"] .container a {
+  border-radius: 0 !important;
+  border: 3px solid #000000 !important;
+  background: #ffffff !important;
+  box-shadow:
+    4px 4px 0px #000000,
+    inset 3px 3px 0px rgba(255, 255, 255, 0.8),
+    inset -3px -3px 0px rgba(0, 0, 0, 0.15) !important;
+  height: 52px !important;
+  transition: transform 0.1s steps(2), box-shadow 0.1s steps(2) !important;
+}
+
+[data-theme="pixel"] .container a::before {
+  border-radius: 0 !important;
+  transition: width 0.25s steps(4) !important;
+}
+
+[data-theme="pixel"] .container a span {
+  font-family: 'Press Start 2P', monospace, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: normal !important;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+[data-theme="pixel"] .container a img {
+  border-radius: 0 !important;
+  image-rendering: pixelated;
+}
+
+[data-theme="pixel"] .container a:hover {
+  transform: translate(-2px, -2px) !important;
+  box-shadow:
+    6px 6px 0px #000000,
+    inset 3px 3px 0px rgba(255, 255, 255, 0.9),
+    inset -3px -3px 0px rgba(0, 0, 0, 0.2) !important;
+}
+
+[data-theme="pixel"] .container a:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow:
+    2px 2px 0px #000000,
+    inset -2px -2px 0px rgba(255, 255, 255, 0.8),
+    inset 2px 2px 0px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* --------------------------------------------------------------------------
+   7. Dividers, Text Elements & Image Cards
+   -------------------------------------------------------------------------- */
+[data-theme="pixel"] .tree-divider {
+  border-radius: 0 !important;
+  height: 4px !important;
+  background: repeating-linear-gradient(
+    90deg,
+    #000000 0px,
+    #000000 8px,
+    transparent 8px,
+    transparent 16px
+  ) !important;
+}
+
+[data-theme="pixel"] .tree-heading {
+  font-family: 'Press Start 2P', monospace, sans-serif !important;
+  font-size: 13px !important;
+  letter-spacing: 0.5px;
+  color: #000000 !important;
+  text-transform: uppercase;
+  margin: 12px 0 4px !important;
+}
+
+[data-theme="pixel"] .tree-paragraph {
+  font-family: 'Press Start 2P', monospace, sans-serif !important;
+  font-size: 10px !important;
+  line-height: 1.8 !important;
+  color: #444444 !important;
+}
+
+[data-theme="pixel"] .tree-img-card {
+  border-radius: 0 !important;
+  border: 3px solid #000000 !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+  background: #ffffff !important;
+  transition: transform 0.1s steps(2), box-shadow 0.1s steps(2) !important;
+}
+
+[data-theme="pixel"] .tree-img-card:hover {
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 6px 6px 0px #000000 !important;
+}
+
+[data-theme="pixel"] .tree-img-caption {
+  font-family: 'Press Start 2P', monospace, sans-serif !important;
+  font-size: 9px !important;
+  border-radius: 0 !important;
+  border-top: 2px solid #000000 !important;
+  background: #f0f0f0 !important;
+}
+
+/* --------------------------------------------------------------------------
+   8. Mobile Responsiveness for Pixel Theme
+   -------------------------------------------------------------------------- */
+@media (max-width: 850px) {
+  [data-theme="pixel"] .container h1,
+  [data-theme="pixel"] #title {
+    font-size: 18px !important;
+    padding-top: 110px !important;
+    line-height: 1.6 !important;
+    text-shadow: 2px 2px 0px #4285f4, 4px 4px 0px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  [data-theme="pixel"] .container p,
+  [data-theme="pixel"] #description {
+    font-size: 9px !important;
+    line-height: 1.9 !important;
+  }
+
+  [data-theme="pixel"] .container a span {
+    font-size: 9.5px !important;
+  }
+}

@@ -1,0 +1,52 @@
+/**
+ * ============================================================================
+ * GDGoC Tree - Classic Theme Variables & Reference Backup
+ * ============================================================================
+ * This file serves as the official backup and baseline specification for the
+ * original "Classic" theme. It documents all color tokens, typography, radii,
+ * shadows, and geometric metrics used in the default design.
+ * DO NOT MODIFY THIS FILE. Use it as a rollback/reference target.
+ * ============================================================================
+ */
+
+:root {
+  /* Brand Colors (Google Palette) */
+  --google-blue: #4285f4;
+  --google-red: #ea4335;
+  --google-yellow: #f9ab00;
+  --google-green: #34a853;
+
+  /* Classic Theme Core Tokens */
+  --classic-font-family: Arial, sans-serif;
+  --classic-text-color: #333333;
+  --classic-heading-color: #202124;
+  --classic-desc-color: #666666;
+  --classic-bg-container: #ffffff;
+  --classic-border-color: #cccccc;
+  --classic-card-bg: #ffffff;
+  --classic-divider-color: #e0e0e0;
+
+  /* Classic Button Specs */
+  --classic-btn-bg: #ffffff;
+  --classic-btn-color: #000000;
+  --classic-btn-border: 1px solid #cccccc;
+  --classic-btn-radius: 20px;
+  --classic-btn-height: 50px;
+  --classic-btn-font-size: 18px;
+  --classic-btn-font-weight: bold;
+  --classic-btn-before-radius: 10px;
+
+  /* Classic Google Circles Specs */
+  --classic-circle-size: 500px;
+  --classic-circle-radius: 50%;
+  --classic-circle-filter: none;
+
+  /* Classic Particles */
+  --classic-particle-size: 4px;
+  --classic-particle-radius: 50%;
+  --classic-particle-opacity: 0.3;
+
+  /* Classic Container */
+  --classic-container-radius: 10px;
+  --classic-container-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}

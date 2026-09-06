@@ -12,14 +12,49 @@
     <meta property="og:image" content="./assets/icons/GDGOnCampus-Horizontal-logo.png" />
     <title>GDG on Campus AIU | Stay Connected!</title>
     <link rel="icon" type="image/png" href="./assets/icons/GDGoC-logo1.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="./src/css/theme-variables.css" />
+    <link rel="stylesheet" href="./src/css/theme-switcher.css" />
+    <link rel="stylesheet" href="./src/css/pixel-theme.css" />
 </head>
 
 <body>
     <div class="container-background">
-        <div class="container-background-border">
-        </div>
+        <div class="container-background-border"></div>
         <div class="container">
+            <!-- Theme Switcher Menu (Top Right) -->
+            <div class="theme-switcher-wrapper">
+                <button id="themeMenuButton" class="theme-menu-btn" aria-haspopup="true" aria-expanded="false" title="Change Theme">
+                    <span class="theme-icon">🎨</span>
+                    <span class="theme-label">Theme</span>
+                    <svg class="theme-chevron" viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M7 10l5 5 5-5z"/>
+                    </svg>
+                </button>
+                <div id="themeDropdown" class="theme-dropdown" role="menu">
+                    <div class="theme-dropdown-header">Select Theme</div>
+                    <button class="theme-option" data-set-theme="classic" role="menuitem">
+                        <span class="option-icon">🎨</span>
+                        <div class="option-info">
+                            <div class="option-title">Classic</div>
+                            <div class="option-sub">Original clean design</div>
+                        </div>
+                        <span class="option-check">✓</span>
+                    </button>
+                    <button class="theme-option" data-set-theme="pixel" role="menuitem">
+                        <span class="option-icon">👾</span>
+                        <div class="option-info">
+                            <div class="option-title">Pixel Art</div>
+                            <div class="option-sub">8-Bit retro arcade</div>
+                        </div>
+                        <span class="option-check">✓</span>
+                    </button>
+                </div>
+            </div>
+
             <div class="particles"></div>
 
             <div class="google-circle red"></div>
@@ -43,6 +78,7 @@
 
     <script type="module" src="./src/js/fillLinks.js"></script>
     <script type="module" src="./src/js/background.js"></script>
+    <script type="module" src="./src/js/themeSwitcher.js"></script>
 </body>
 
 </html>

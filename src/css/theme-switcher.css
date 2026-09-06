@@ -1,0 +1,272 @@
+/**
+ * ============================================================================
+ * GDGoC Tree - Theme Switcher Menu Styles
+ * ============================================================================
+ */
+
+.theme-switcher-wrapper {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 300;
+  user-select: none;
+}
+
+/* --------------------------------------------------------------------------
+   Classic Mode Theme Switcher (Default)
+   -------------------------------------------------------------------------- */
+.theme-menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1px solid #e0e0e0;
+  border-radius: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.theme-menu-btn:hover {
+  background: #ffffff;
+  border-color: #cccccc;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+.theme-menu-btn:active {
+  transform: translateY(1px);
+}
+
+.theme-icon {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.theme-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.theme-chevron {
+  transition: transform 0.2s ease;
+  color: #666666;
+}
+
+.theme-menu-btn[aria-expanded="true"] .theme-chevron {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.theme-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 220px;
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  padding: 8px;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 350;
+  animation: fadeInDown 0.18s ease-out;
+}
+
+.theme-dropdown.open {
+  display: flex;
+}
+
+.theme-dropdown-header {
+  padding: 6px 10px 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #888888;
+  letter-spacing: 0.5px;
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+  width: 100%;
+  color: inherit;
+}
+
+.theme-option:hover {
+  background: #f4f6f9;
+}
+
+.theme-option.active {
+  background: #edf3fd;
+}
+
+.option-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+}
+
+.option-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.option-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.option-sub {
+  font-size: 11px;
+  color: #777777;
+}
+
+.option-check {
+  font-size: 14px;
+  font-weight: bold;
+  color: #4285f4;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.theme-option.active .option-check {
+  opacity: 1;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   Pixel Art Mode Overrides for Theme Switcher
+   -------------------------------------------------------------------------- */
+[data-theme="pixel"] .theme-menu-btn {
+  font-family: 'Press Start 2P', monospace, sans-serif !important;
+  font-size: 9px !important;
+  border-radius: 0 !important;
+  border: 3px solid #000000 !important;
+  box-shadow: 3px 3px 0px #000000 !important;
+  background: #ffffff !important;
+  color: #000000 !important;
+  padding: 8px 12px !important;
+}
+
+[data-theme="pixel"] .theme-menu-btn:hover {
+  transform: translate(-1px, -1px) !important;
+  box-shadow: 4px 4px 0px #000000 !important;
+}
+
+[data-theme="pixel"] .theme-menu-btn:active {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 1px 1px 0px #000000 !important;
+}
+
+[data-theme="pixel"] .theme-label {
+  font-family: 'Press Start 2P', monospace, sans-serif !important;
+  font-size: 9px !important;
+}
+
+[data-theme="pixel"] .theme-dropdown {
+  font-family: 'Press Start 2P', monospace, sans-serif !important;
+  border-radius: 0 !important;
+  border: 3px solid #000000 !important;
+  box-shadow: 5px 5px 0px #000000 !important;
+  background: #fdfbf7 !important;
+  min-width: 250px;
+}
+
+[data-theme="pixel"] .theme-dropdown-header {
+  font-family: 'Press Start 2P', monospace, sans-serif !important;
+  font-size: 8px !important;
+  color: #000000 !important;
+  border-bottom: 2px solid #000000;
+  margin-bottom: 4px;
+}
+
+[data-theme="pixel"] .theme-option {
+  border-radius: 0 !important;
+  font-family: 'Press Start 2P', monospace, sans-serif !important;
+  padding: 8px 10px !important;
+}
+
+[data-theme="pixel"] .theme-option:hover {
+  background: #000000 !important;
+  color: #ffffff !important;
+}
+
+[data-theme="pixel"] .theme-option:hover .option-title,
+[data-theme="pixel"] .theme-option:hover .option-sub,
+[data-theme="pixel"] .theme-option:hover .option-check {
+  color: #ffffff !important;
+}
+
+[data-theme="pixel"] .option-title {
+  font-family: 'Press Start 2P', monospace, sans-serif !important;
+  font-size: 9px !important;
+}
+
+[data-theme="pixel"] .option-sub {
+  font-family: 'Press Start 2P', monospace, sans-serif !important;
+  font-size: 7px !important;
+  line-height: 1.5;
+  margin-top: 3px;
+}
+
+[data-theme="pixel"] .theme-option.active {
+  background: #ece8df !important;
+}
+
+[data-theme="pixel"] .theme-option.active .option-check {
+  color: #ea4335 !important;
+}
+
+/* --------------------------------------------------------------------------
+   Mobile Adjustments
+   -------------------------------------------------------------------------- */
+@media (max-width: 850px) {
+  .theme-switcher-wrapper {
+    top: 15px;
+    right: 15px;
+  }
+
+  .theme-menu-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .theme-label {
+    display: none;
+  }
+
+  [data-theme="pixel"] .theme-menu-btn {
+    padding: 6px 10px !important;
+  }
+}
