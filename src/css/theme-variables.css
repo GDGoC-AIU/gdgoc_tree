@@ -50,8 +50,8 @@
 
 [data-theme="pixel"] {
   /* Pixel / 8-Bit Typography */
-  --theme-font-family: 'Press Start 2P', monospace, sans-serif;
-  --theme-font-heading: 'Press Start 2P', monospace, sans-serif;
+  --theme-font-family: "Press Start 2P", monospace, sans-serif;
+  --theme-font-heading: "Press Start 2P", monospace, sans-serif;
   --theme-title-size: 26px;
   --theme-title-size-mobile: 18px;
   --theme-desc-size: 11px;
