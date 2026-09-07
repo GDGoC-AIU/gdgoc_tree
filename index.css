@@ -1,3 +1,11 @@
+#description {
+  font-size: 32px;
+  margin-top: 0;
+  opacity: 0;
+
+  animation: fadeRight 1s ease 0.8s forwards;
+}
+
 html,
 body {
   margin: 0;
@@ -139,14 +147,6 @@ body {
 
   opacity: 0;
   animation: fadeRight 1s ease 0.7s forwards;
-}
-
-.container p {
-  font-size: 32px;
-  margin-top: 0;
-
-  opacity: 0;
-  animation: fadeRight 1s ease 0.8s forwards;
 }
 
 .google-circle {
