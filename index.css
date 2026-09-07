@@ -83,6 +83,8 @@ body {
   top: 50%;
   left: 50%;
 
+  transform: translate(-50%, -50%);
+
   background: conic-gradient(
     #ea4335 0deg 90deg,
     #f9ab00 90deg 180deg,
@@ -478,12 +480,19 @@ body {
    Accessibility: Reduced Motion Support
    -------------------------------------------------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-  .container-background-border,
+  .container-background-border {
+    animation: none !important;
+  }
+
   .particle,
   .container a,
   .container a::before,
   .container a img,
-  .tree-img-card {
+  .tree-img-card,
+  .tree-img-card img,
+  .tree-heading,
+  .tree-divider {
+    opacity: 1 !important;
     animation: none !important;
     transition: none !important;
   }
@@ -501,4 +510,3 @@ body {
     animation: none !important;
   }
 }
-
