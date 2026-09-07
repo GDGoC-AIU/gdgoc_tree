@@ -399,6 +399,63 @@ body {
   line-height: 1.4;
 }
 
+.tree-error-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: clamp(200px, 75%, 400px);
+  padding: 24px 20px;
+  border-radius: 16px;
+  background: white;
+  border: 1px solid #ea4335;
+  box-shadow: 0 4px 12px rgba(234, 67, 53, 0.12);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.tree-error-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+}
+
+.tree-error-msg {
+  font-size: 15px;
+  color: #555;
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+}
+
+.tree-retry-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  padding: 0 24px;
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  background: #ea4335;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(234, 67, 53, 0.35);
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.tree-retry-btn:hover {
+  background: #d93025;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(234, 67, 53, 0.4);
+}
+
+.tree-retry-btn:active {
+  transform: translateY(0);
+}
+
 @media (max-width: 850px) {
   .container-background {
     margin: 10px;

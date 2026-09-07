@@ -254,6 +254,51 @@
   background: #f0f0f0;
 }
 
+[data-theme="pixel"] .tree-error-card {
+  border-radius: 0;
+  border: 3px solid #000000;
+  background: #ffffff;
+  box-shadow: 4px 4px 0px #000000;
+  padding: 20px 16px;
+}
+
+[data-theme="pixel"] .tree-error-msg {
+  font-family: "Press Start 2P", monospace, sans-serif;
+  font-size: 10px;
+  line-height: 1.8;
+  color: #1a1a1a;
+}
+
+[data-theme="pixel"] .tree-retry-btn {
+  border-radius: 0;
+  border: 3px solid #000000;
+  background: #ea4335;
+  color: #ffffff;
+  font-family: "Press Start 2P", monospace, sans-serif;
+  font-size: 10px;
+  height: 44px;
+  box-shadow:
+    4px 4px 0px #000000,
+    inset 2px 2px 0px rgba(255, 255, 255, 0.4);
+  transition:
+    transform 0.1s steps(2),
+    box-shadow 0.1s steps(2);
+}
+
+[data-theme="pixel"] .tree-retry-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow:
+    6px 6px 0px #000000,
+    inset 2px 2px 0px rgba(255, 255, 255, 0.4);
+}
+
+[data-theme="pixel"] .tree-retry-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow:
+    2px 2px 0px #000000,
+    inset -2px -2px 0px rgba(255, 255, 255, 0.4);
+}
+
 /* --------------------------------------------------------------------------
    8. Mobile Responsiveness for Pixel Theme
    -------------------------------------------------------------------------- */

@@ -227,13 +227,55 @@ export function renderTree(data) {
   isInitialRender = false;
 }
 
+export function renderErrorFallback() {
+  const container = document.querySelector(".links");
+  if (!container) return;
+  container.innerHTML = "";
+
+  const card = document.createElement("div");
+  card.className = "tree-error-card";
+
+  const icon = document.createElement("div");
+  icon.className = "tree-error-icon";
+  icon.textContent = "⚠️";
+
+  const msg = document.createElement("p");
+  msg.className = "tree-error-msg";
+  msg.textContent = "Unable to load links. Please check your connection.";
+
+  const retryBtn = document.createElement("button");
+  retryBtn.className = "tree-retry-btn";
+  retryBtn.type = "button";
+  retryBtn.textContent = "Retry";
+  retryBtn.addEventListener("click", () => {
+    loadTreeData();
+  });
+
+  card.appendChild(icon);
+  card.appendChild(msg);
+  card.appendChild(retryBtn);
+  container.appendChild(card);
+}
+
+export function loadTreeData() {
+  fetch("./src/json/data.json")
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      renderTree(data);
+    })
+    .catch((err) => {
+      console.error("Failed to load tree data:", err);
+      renderErrorFallback();
+    });
+}
+
 // Initial load
-fetch("./src/json/data.json")
-  .then((response) => response.json())
-  .then((data) => {
-    renderTree(data);
-  })
-  .catch((err) => console.error("Failed to load tree data:", err));
+loadTreeData();
 
 // Re-render when theme changes
 window.addEventListener("themeChange", () => {
@@ -241,3 +283,4 @@ window.addEventListener("themeChange", () => {
     renderTree(cachedData);
   }
 });
+
