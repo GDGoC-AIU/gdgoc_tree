@@ -282,12 +282,14 @@
 /* --------------------------------------------------------------------------
    9. Accessibility: Reduced Motion Support for Pixel Theme
    -------------------------------------------------------------------------- */
-[data-theme="pixel"] .particle,
-[data-theme="pixel"] .container a,
-[data-theme="pixel"] .container a::before,
-[data-theme="pixel"] .container a img,
-[data-theme="pixel"] .tree-img-card {
-  opacity: 1 !important;
-  animation: none !important;
-  transition: none !important;
+@media (prefers-reduced-motion: reduce) {
+   [data-theme="pixel"] .particle,
+   [data-theme="pixel"] .container a,
+   [data-theme="pixel"] .container a::before,
+   [data-theme="pixel"] .container a img,
+   [data-theme="pixel"] .tree-img-card {
+     opacity: 1 !important;
+     animation: none !important;
+     transition: none !important;
+   }
 }
