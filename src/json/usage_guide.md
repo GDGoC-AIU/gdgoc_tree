@@ -52,18 +52,22 @@ The classic interactive pill button featuring an icon, label, sliding brand colo
 | `icon` | `string` | **Yes** | Local path to the icon, e.g., `"./assets/icons/whatsapp-icon.png"`. |
 | `color` | `string` | **Yes** | Hex code or CSS color for the hover fill effect (e.g., `"#25d366"`, `"#ea4335"`). |
 | `id` | `string` | No | Optional unique identifier (e.g., `"whatsapp"`). |
-| `active` | `boolean` | No | Set to `false` to hide the button. Defaults to `true`. |
+| `active` | `boolean` | No | Controls visibility. Set to `false` to hide the button entirely. Defaults to `true`. |
+| `status` | `boolean` | No | Controls interactive state. If `false`, the button is disabled, turns gray, and does not navigate anywhere. Defaults to `true`. |
+| `status-text` | `string` | No | Optional text shown when hovering over the button (e.g., `"Coming soon"`). |
 
 #### Code Example:
 ```json
 {
   "type": "button",
-  "id": "whatsapp",
-  "text": "WhatsApp Community",
-  "link": "https://chat.whatsapp.com/Lx0mHZvlvWm8U2WOgy0djZ",
-  "icon": "./assets/icons/whatsapp-icon.png",
-  "color": "#25d366",
-  "active": true
+  "id": "bevy",
+  "text": "Bevy",
+  "link": "https://gdg.community.dev/...",
+  "icon": "./assets/icons/GDGoC-icon.png",
+  "color": "#34a853",
+  "active": true,
+  "status": false,
+  "status-text": "Coming soon"
 }
 ```
 
