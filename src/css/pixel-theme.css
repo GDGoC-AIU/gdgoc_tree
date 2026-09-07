@@ -278,3 +278,18 @@
     font-size: 9.5px;
   }
 }
+
+/* --------------------------------------------------------------------------
+   9. Accessibility: Reduced Motion Support for Pixel Theme
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="pixel"] .particle,
+  [data-theme="pixel"] .container a,
+  [data-theme="pixel"] .container a::before,
+  [data-theme="pixel"] .container a img,
+  [data-theme="pixel"] .tree-img-card {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+

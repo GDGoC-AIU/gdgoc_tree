@@ -473,3 +473,32 @@ body {
     transform: translateY(0px);
   }
 }
+
+/* --------------------------------------------------------------------------
+   Accessibility: Reduced Motion Support
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .container-background-border,
+  .particle,
+  .container a,
+  .container a::before,
+  .container a img,
+  .tree-img-card {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .logo,
+  .container h1,
+  .container p {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+
+  .google-circle {
+    transform: translate(0, 0) !important;
+    animation: none !important;
+  }
+}
+
