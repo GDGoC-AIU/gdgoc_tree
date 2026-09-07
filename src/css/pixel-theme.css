@@ -325,16 +325,14 @@
 }
 
 /* --------------------------------------------------------------------------
-   9. Accessibility: Reduced Motion Support for Pixel Theme
+   9. Motion Control for Pixel Theme
    -------------------------------------------------------------------------- */
+html[data-motion="disabled"] [data-theme="pixel"] .particle {
+  animation: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
-   [data-theme="pixel"] .particle,
-   [data-theme="pixel"] .container a,
-   [data-theme="pixel"] .container a::before,
-   [data-theme="pixel"] .container a img,
-   [data-theme="pixel"] .tree-img-card {
-     opacity: 1 !important;
-     animation: none !important;
-     transition: none !important;
-   }
+  html:not([data-motion="enabled"]) [data-theme="pixel"] .particle {
+    animation: none;
+  }
 }
