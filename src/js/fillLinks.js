@@ -79,15 +79,37 @@ export function renderTree(data) {
       case "button": {
         const a = document.createElement("a");
         a.id = item.id || item.name || `btn-${visibleIndex}`;
-        a.style.setProperty("--button-before-color", item.color || "#4285f4");
-        a.href = item.link || "#";
-        if (
-          item.link &&
-          !item.link.startsWith("mailto:") &&
-          !item.link.startsWith("tel:")
-        ) {
-          a.target = "_blank";
-          a.rel = "noopener noreferrer";
+
+        const isStatusActive = item.status !== false;
+        const statusText =
+          item["status-text"] ||
+          item["statuc-text"] ||
+          item.statusText ||
+          item.statucText ||
+          item["status_text"];
+
+        if (!isStatusActive) {
+          a.classList.add("disabled");
+          a.style.setProperty("--button-before-color", "gray");
+          a.style.cursor = "not-allowed";
+          a.removeAttribute("href");
+          a.setAttribute("role", "button");
+          a.setAttribute("aria-disabled", "true");
+          a.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+          });
+        } else {
+          a.style.setProperty("--button-before-color", item.color || "#4285f4");
+          a.href = item.link || "#";
+          if (
+            item.link &&
+            !item.link.startsWith("mailto:") &&
+            !item.link.startsWith("tel:")
+          ) {
+            a.target = "_blank";
+            a.rel = "noopener noreferrer";
+          }
         }
 
         const iconSrc =
@@ -102,8 +124,24 @@ export function renderTree(data) {
         }
 
         const span = document.createElement("span");
-        span.textContent = item.text || "Link";
+        const defaultText = item.text || "Link";
+        span.textContent = defaultText;
         a.appendChild(span);
+
+        if (statusText) {
+          a.addEventListener("mouseenter", () => {
+            span.textContent = statusText;
+          });
+          a.addEventListener("mouseleave", () => {
+            span.textContent = defaultText;
+          });
+          a.addEventListener("focus", () => {
+            span.textContent = statusText;
+          });
+          a.addEventListener("blur", () => {
+            span.textContent = defaultText;
+          });
+        }
 
         el = a;
         break;

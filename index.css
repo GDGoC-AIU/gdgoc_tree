@@ -305,6 +305,22 @@ body {
   left: calc(100% - 30px);
 }
 
+.container a.disabled {
+  cursor: not-allowed;
+  background: #f4f4f4;
+  border-color: #bbb;
+  color: #555;
+}
+
+.container a.disabled:active {
+  transform: none;
+}
+
+.container a.disabled img {
+  filter: grayscale(100%);
+  opacity: 0.8;
+}
+
 /* ============================================================
    Linktree-like Multi-Type Components (img, divider, text)
    ============================================================ */
