@@ -1,158 +1,380 @@
 /**
  * ============================================================================
- * THEME CONFIGURATION
+ * GDGoC Tree - Theme & Preferences Switcher
  * ============================================================================
- * Change this variable to choose the default theme for first-time visitors:
- *   - "classic" : Original clean Google look
- *   - "pixel"   : 8-Bit Retro Gaming pixel art style
+ * Handles theme selection (Classic / Pixel Art) and motion preferences
+ * (Reduced Motion / Animation Toggle).
  * ============================================================================
  */
-export const DEFAULT_THEME = "pixel"; // "classic" or "pixel" (data.json is prioritized)
 
-const STORAGE_KEY = "gdgoc_theme";
-const USER_SELECTION_KEY = "gdgoc_user_selected_theme";
-const LAST_DEFAULT_KEY = "gdgoc_last_default_theme";
+// ----------------------------------------------------------------------------
+// 1. Constants & Enums
+// ----------------------------------------------------------------------------
+export const DEFAULT_THEME = "pixel"; // "classic" or "pixel" (data.json meta takes priority)
 
-/**
- * Resolves the configured default theme:
- * 1. Checks HTML attribute data-default-theme on <html> or <body> if present
- * 2. Falls back to DEFAULT_THEME variable above
- */
-export function getConfiguredDefaultTheme() {
-  const htmlAttr = document.documentElement.getAttribute("data-default-theme");
-  const bodyAttr = document.body?.getAttribute("data-default-theme");
-  return htmlAttr || bodyAttr || DEFAULT_THEME;
+export const Theme = Object.freeze({
+  CLASSIC: "classic",
+  PIXEL: "pixel"
+});
+
+export const Motion = Object.freeze({
+  ENABLED: "enabled",
+  DISABLED: "disabled"
+});
+
+const StorageKey = Object.freeze({
+  THEME: "gdgoc_theme",
+  USER_THEME: "gdgoc_user_selected_theme",
+  LAST_DEFAULT_THEME: "gdgoc_last_default_theme",
+  MOTION: "gdgoc_motion"
+});
+
+const EventName = Object.freeze({
+  THEME_CHANGE: "themeChange",
+  MOTION_CHANGE: "motionChange"
+});
+
+// ----------------------------------------------------------------------------
+// 2. Safe Storage Wrapper (DRY localStorage operations with error boundaries)
+// ----------------------------------------------------------------------------
+const storage = {
+  get(key, fallback = null) {
+    try {
+      return localStorage.getItem(key) ?? fallback;
+    } catch {
+      return fallback;
+    }
+  },
+  set(key, value) {
+    try {
+      localStorage.setItem(key, value);
+      return true;
+    } catch (err) {
+      console.warn(`[Storage] Failed to save key "${key}":`, err);
+      return false;
+    }
+  },
+  has(key) {
+    try {
+      return localStorage.getItem(key) !== null;
+    } catch {
+      return false;
+    }
+  }
+};
+
+// ----------------------------------------------------------------------------
+// 3. Motion Manager (Reduced Motion detection & user override)
+// ----------------------------------------------------------------------------
+class MotionManager {
+  constructor() {
+    this.mediaQuery =
+      typeof window !== "undefined" && window.matchMedia
+        ? window.matchMedia("(prefers-reduced-motion: reduce)")
+        : null;
+    this.state = this.resolveInitialState();
+  }
+
+  get systemPrefersReducedMotion() {
+    return Boolean(this.mediaQuery?.matches);
+  }
+
+  resolveInitialState() {
+    const saved = storage.get(StorageKey.MOTION);
+    if (saved === Motion.ENABLED || saved === Motion.DISABLED) {
+      return saved;
+    }
+    return this.systemPrefersReducedMotion ? Motion.DISABLED : Motion.ENABLED;
+  }
+
+  setState(nextState, { persist = false } = {}) {
+    this.state = nextState === Motion.DISABLED ? Motion.DISABLED : Motion.ENABLED;
+
+    document.documentElement.setAttribute("data-motion", this.state);
+    if (document.body) {
+      document.body.setAttribute("data-motion", this.state);
+    }
+
+    if (persist) {
+      storage.set(StorageKey.MOTION, this.state);
+    }
+
+    window.dispatchEvent(
+      new CustomEvent(EventName.MOTION_CHANGE, { detail: { motion: this.state } })
+    );
+
+    return this.state;
+  }
+
+  toggle() {
+    const nextState =
+      this.state === Motion.ENABLED ? Motion.DISABLED : Motion.ENABLED;
+    return this.setState(nextState, { persist: true });
+  }
+
+  listenToSystemChanges() {
+    if (!this.mediaQuery) return;
+
+    const onMediaChange = (event) => {
+      // Only react to OS changes if user hasn't set an explicit preference
+      if (!storage.has(StorageKey.MOTION)) {
+        this.setState(event.matches ? Motion.DISABLED : Motion.ENABLED, {
+          persist: false
+        });
+      }
+    };
+
+    if (this.mediaQuery.addEventListener) {
+      this.mediaQuery.addEventListener("change", onMediaChange);
+    } else if (this.mediaQuery.addListener) {
+      this.mediaQuery.addListener(onMediaChange);
+    }
+  }
 }
 
-function getSavedTheme() {
-  const defaultTheme = getConfiguredDefaultTheme();
+// ----------------------------------------------------------------------------
+// 4. Theme Manager (Theme resolution, application & meta sync)
+// ----------------------------------------------------------------------------
+class ThemeManager {
+  constructor() {
+    this.state = this.resolveInitialState();
+  }
 
-  try {
-    const lastDefault = localStorage.getItem(LAST_DEFAULT_KEY);
+  getConfiguredDefault() {
+    const htmlAttr = document.documentElement.getAttribute("data-default-theme");
+    const bodyAttr = document.body?.getAttribute("data-default-theme");
+    return htmlAttr || bodyAttr || DEFAULT_THEME;
+  }
 
-    // If the developer updated DEFAULT_THEME in the code, immediately respect the new default
-    if (lastDefault !== defaultTheme) {
-      localStorage.setItem(LAST_DEFAULT_KEY, defaultTheme);
-      // If user hasn't explicitly manually chosen a theme, switch to the new default
-      if (!localStorage.getItem(USER_SELECTION_KEY)) {
-        return defaultTheme;
+  resolveInitialState() {
+    const configuredDefault = this.getConfiguredDefault();
+    const lastDefault = storage.get(StorageKey.LAST_DEFAULT_THEME);
+
+    if (lastDefault !== configuredDefault) {
+      storage.set(StorageKey.LAST_DEFAULT_THEME, configuredDefault);
+      if (!storage.has(StorageKey.USER_THEME)) {
+        return configuredDefault;
       }
     }
 
-    // If user previously chose a theme from the menu, keep their choice
-    const userSelected = localStorage.getItem(USER_SELECTION_KEY);
-    if (userSelected) {
-      return userSelected;
+    return storage.get(StorageKey.USER_THEME) || configuredDefault;
+  }
+
+  setState(nextTheme, { persist = false } = {}) {
+    this.state = nextTheme === Theme.PIXEL ? Theme.PIXEL : Theme.CLASSIC;
+
+    document.documentElement.setAttribute("data-theme", this.state);
+    if (document.body) {
+      document.body.setAttribute("data-theme", this.state);
     }
 
-    return defaultTheme;
-  } catch (e) {
-    return defaultTheme;
+    storage.set(StorageKey.THEME, this.state);
+    if (persist) {
+      storage.set(StorageKey.USER_THEME, this.state);
+    }
+
+    window.dispatchEvent(
+      new CustomEvent(EventName.THEME_CHANGE, { detail: { theme: this.state } })
+    );
+
+    return this.state;
+  }
+
+  async syncFromDataJson() {
+    if (storage.has(StorageKey.USER_THEME)) return;
+
+    try {
+      const response = await fetch("./src/json/data.json");
+      if (!response.ok) return;
+      const data = await response.json();
+      const metaTheme = data?.meta?.defaultTheme;
+      if (metaTheme && !storage.has(StorageKey.USER_THEME)) {
+        this.setState(metaTheme, { persist: false });
+      }
+    } catch {
+      // Non-blocking fallback
+    }
   }
 }
 
-function saveTheme(theme, isUserManualChoice = false) {
-  try {
-    localStorage.setItem(STORAGE_KEY, theme);
-    if (isUserManualChoice) {
-      localStorage.setItem(USER_SELECTION_KEY, theme);
-    }
-  } catch (e) {
-    console.warn("localStorage not accessible:", e);
+// ----------------------------------------------------------------------------
+// 5. Preferences Menu UI Controller
+// ----------------------------------------------------------------------------
+class PreferencesMenuController {
+  constructor(themeManager, motionManager) {
+    this.themeManager = themeManager;
+    this.motionManager = motionManager;
+
+    this.menuButton = document.getElementById("themeMenuButton");
+    this.menuDropdown = document.getElementById("themeDropdown");
+    this.themeIcon = document.querySelector(".theme-icon");
+    this.themeOptions = document.querySelectorAll(".theme-option[data-set-theme]");
+
+    this.motionToggleBtn = document.getElementById("motionToggleBtn");
+    this.motionIcon = document.getElementById("motionIcon");
+    this.motionSub = document.getElementById("motionSub");
+    this.motionBadge = document.getElementById("motionBadge");
   }
-}
 
-export function applyTheme(theme, isUserManualChoice = false) {
-  const currentTheme = theme === "pixel" ? "pixel" : "classic";
+  init() {
+    if (!this.menuButton || !this.menuDropdown) return;
 
-  document.documentElement.setAttribute("data-theme", currentTheme);
-  document.body.setAttribute("data-theme", currentTheme);
+    // Apply initial UI render
+    this.renderThemeUI(this.themeManager.state);
+    this.renderMotionUI(this.motionManager.state);
 
-  // Update active state in menu
-  const options = document.querySelectorAll(".theme-option");
-  options.forEach((opt) => {
-    const optTheme = opt.getAttribute("data-set-theme");
-    if (optTheme === currentTheme) {
-      opt.classList.add("active");
+    // Keep UI in sync with state changes
+    window.addEventListener(EventName.THEME_CHANGE, (event) => {
+      this.renderThemeUI(event.detail.theme);
+    });
+
+    window.addEventListener(EventName.MOTION_CHANGE, (event) => {
+      this.renderMotionUI(event.detail.motion);
+    });
+
+    this.bindEvents();
+  }
+
+  renderThemeUI(theme) {
+    if (this.themeIcon) {
+      this.themeIcon.textContent = theme === Theme.PIXEL ? "👾" : "🎨";
+    }
+
+    this.themeOptions.forEach((option) => {
+      const isSelected = option.getAttribute("data-set-theme") === theme;
+      option.classList.toggle("active", isSelected);
+      option.setAttribute("aria-selected", isSelected ? "true" : "false");
+    });
+  }
+
+  renderMotionUI(motion) {
+    const isEnabled = motion === Motion.ENABLED;
+
+    if (this.motionIcon) {
+      this.motionIcon.textContent = isEnabled ? "✨" : "⏸️";
+    }
+    if (this.motionSub) {
+      this.motionSub.textContent = isEnabled ? "Enabled" : "Disabled";
+    }
+    if (this.motionBadge) {
+      this.motionBadge.textContent = isEnabled ? "ON" : "OFF";
+      this.motionBadge.classList.toggle("off", !isEnabled);
+    }
+    if (this.motionToggleBtn) {
+      this.motionToggleBtn.setAttribute("aria-checked", isEnabled ? "true" : "false");
+    }
+  }
+
+  open() {
+    this.menuDropdown.classList.add("open");
+    this.menuButton.setAttribute("aria-expanded", "true");
+  }
+
+  close() {
+    this.menuDropdown.classList.remove("open");
+    this.menuButton.setAttribute("aria-expanded", "false");
+  }
+
+  toggle() {
+    const isOpen = this.menuDropdown.classList.contains("open");
+    if (isOpen) {
+      this.close();
     } else {
-      opt.classList.remove("active");
+      this.open();
     }
-  });
-
-  // Update button icon
-  const iconEl = document.querySelector(".theme-icon");
-  if (iconEl) {
-    iconEl.textContent = currentTheme === "pixel" ? "👾" : "🎨";
   }
 
-  saveTheme(currentTheme, isUserManualChoice);
+  bindEvents() {
+    // Menu trigger click
+    this.menuButton.addEventListener("click", (event) => {
+      event.stopPropagation();
+      this.toggle();
+    });
 
-  // Dispatch custom event
-  window.dispatchEvent(
-    new CustomEvent("themeChange", { detail: { theme: currentTheme } })
-  );
+    // Theme choices
+    this.themeOptions.forEach((option) => {
+      option.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const selectedTheme = option.getAttribute("data-set-theme");
+        if (selectedTheme) {
+          this.themeManager.setState(selectedTheme, { persist: true });
+        }
+        this.close();
+      });
+    });
+
+    // Motion choice toggle (keeps menu open for visual feedback)
+    if (this.motionToggleBtn) {
+      this.motionToggleBtn.addEventListener("click", (event) => {
+        event.stopPropagation();
+        this.motionManager.toggle();
+      });
+    }
+
+    // Close on click outside
+    document.addEventListener("click", (event) => {
+      if (
+        !this.menuDropdown.contains(event.target) &&
+        !this.menuButton.contains(event.target)
+      ) {
+        this.close();
+      }
+    });
+
+    // Close on Escape key and return focus to trigger
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && this.menuDropdown.classList.contains("open")) {
+        this.close();
+        this.menuButton.focus();
+      }
+    });
+  }
+}
+
+// ----------------------------------------------------------------------------
+// 6. Application Instances & Public API Exports
+// ----------------------------------------------------------------------------
+export const motionManager = new MotionManager();
+export const themeManager = new ThemeManager();
+
+/**
+ * Public functions preserved for backward compatibility
+ */
+export function applyTheme(theme, isUserManualChoice = false) {
+  return themeManager.setState(theme, { persist: Boolean(isUserManualChoice) });
+}
+
+export function applyMotion(state, isUserManualChoice = false) {
+  return motionManager.setState(state, { persist: Boolean(isUserManualChoice) });
+}
+
+export function getConfiguredDefaultTheme() {
+  return themeManager.getConfiguredDefault();
+}
+
+export function getSavedMotion() {
+  return motionManager.state;
+}
+
+export function getSystemPrefersReducedMotion() {
+  return motionManager.systemPrefersReducedMotion;
 }
 
 export function initThemeSwitcher() {
-  const btn = document.getElementById("themeMenuButton");
-  const dropdown = document.getElementById("themeDropdown");
-  const options = document.querySelectorAll(".theme-option");
+  // Apply initial DOM states
+  themeManager.setState(themeManager.state, { persist: false });
+  motionManager.setState(motionManager.state, { persist: false });
 
-  // Apply initial theme
-  const initialTheme = getSavedTheme();
-  applyTheme(initialTheme, false);
+  // Initialize UI controls
+  const menu = new PreferencesMenuController(themeManager, motionManager);
+  menu.init();
 
-  // Also check if data.json specifies a defaultTheme
-  fetch("./src/json/data.json")
-    .then((res) => res.json())
-    .then((data) => {
-      if (
-        data?.meta?.defaultTheme &&
-        !localStorage.getItem(USER_SELECTION_KEY)
-      ) {
-        applyTheme(data.meta.defaultTheme, false);
-      }
-    })
-    .catch(() => {});
-
-  if (!btn || !dropdown) return;
-
-  // Toggle Dropdown
-  btn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    const isOpen = dropdown.classList.toggle("open");
-    btn.setAttribute("aria-expanded", isOpen ? "true" : "false");
-  });
-
-  // Theme option clicks
-  options.forEach((opt) => {
-    opt.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const selectedTheme = opt.getAttribute("data-set-theme");
-      applyTheme(selectedTheme, true);
-      dropdown.classList.remove("open");
-      btn.setAttribute("aria-expanded", "false");
-    });
-  });
-
-  // Close dropdown on click outside
-  document.addEventListener("click", (e) => {
-    if (!dropdown.contains(e.target) && !btn.contains(e.target)) {
-      dropdown.classList.remove("open");
-      btn.setAttribute("aria-expanded", "false");
-    }
-  });
-
-  // Close on Escape
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && dropdown.classList.contains("open")) {
-      dropdown.classList.remove("open");
-      btn.setAttribute("aria-expanded", "false");
-    }
-  });
+  // Watch system preferences & data.json sync
+  motionManager.listenToSystemChanges();
+  themeManager.syncFromDataJson();
 }
 
-// Auto-initialize when DOM is loaded
+// Auto-initialize on DOM ready
 if (document.readyState === "loading") {
   document.addEventListener("DOMContentLoaded", initThemeSwitcher);
 } else {

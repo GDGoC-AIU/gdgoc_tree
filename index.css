@@ -534,35 +534,64 @@ body {
 }
 
 /* --------------------------------------------------------------------------
-   Accessibility: Reduced Motion Support
+   Accessibility & Motion Preferences
    -------------------------------------------------------------------------- */
+/* User explicitly disabled motion */
+html[data-motion="disabled"] .container-background-border,
+html[data-motion="disabled"] .particle {
+  animation: none !important;
+}
+
+html[data-motion="disabled"] .container a,
+html[data-motion="disabled"] .container a::before,
+html[data-motion="disabled"] .tree-img-card,
+html[data-motion="disabled"] .tree-img-card img,
+html[data-motion="disabled"] .tree-heading,
+html[data-motion="disabled"] .tree-divider,
+html[data-motion="disabled"] .logo,
+html[data-motion="disabled"] .container h1,
+html[data-motion="disabled"] #description {
+  opacity: 1 !important;
+  transform: none !important;
+  animation: none !important;
+  transition: none !important;
+}
+
+html[data-motion="disabled"] .container a img {
+  transition: none !important;
+}
+
+html[data-motion="disabled"] .google-circle {
+  transform: translate(0, 0) !important;
+  animation: none !important;
+}
+
+/* OS prefers reduced motion, unless user explicitly enabled motion */
 @media (prefers-reduced-motion: reduce) {
-  .container-background-border {
+  html:not([data-motion="enabled"]) .container-background-border,
+  html:not([data-motion="enabled"]) .particle {
     animation: none !important;
   }
 
-  .particle,
-  .container a,
-  .container a::before,
-  .container a img,
-  .tree-img-card,
-  .tree-img-card img,
-  .tree-heading,
-  .tree-divider {
+  html:not([data-motion="enabled"]) .container a img {
+    transition: none !important;
+  }
+
+  html:not([data-motion="enabled"]) .container a,
+  html:not([data-motion="enabled"]) .tree-img-card,
+  html:not([data-motion="enabled"]) .tree-img-card img,
+  html:not([data-motion="enabled"]) .tree-heading,
+  html:not([data-motion="enabled"]) .tree-divider,
+  html:not([data-motion="enabled"]) .logo,
+  html:not([data-motion="enabled"]) .container h1,
+  html:not([data-motion="enabled"]) #description {
     opacity: 1 !important;
+    transform: none !important;
     animation: none !important;
     transition: none !important;
   }
 
-  .logo,
-  .container h1,
-  .container p {
-    opacity: 1 !important;
-    transform: none !important;
-    animation: none !important;
-  }
-
-  .google-circle {
+  html:not([data-motion="enabled"]) .google-circle {
     transform: translate(0, 0) !important;
     animation: none !important;
   }

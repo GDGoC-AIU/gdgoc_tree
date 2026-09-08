@@ -154,6 +154,28 @@
   opacity: 1;
 }
 
+.theme-dropdown-divider {
+  height: 1px;
+  background: #f0f0f0;
+  margin: 6px 4px;
+}
+
+.motion-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 12px;
+  background: #e6f4ea;
+  color: #137333;
+  margin-left: auto;
+  transition: all 0.2s ease;
+}
+
+.motion-badge.off {
+  background: #f1f3f4;
+  color: #5f6368;
+}
+
 @keyframes fadeInDown {
   from {
     opacity: 0;
@@ -246,6 +268,28 @@
 
 [data-theme="pixel"] .theme-option.active .option-check {
   color: #ea4335;
+}
+
+[data-theme="pixel"] .theme-dropdown-divider {
+  height: 2px;
+  background: #000000;
+  margin: 6px 0;
+}
+
+[data-theme="pixel"] .motion-badge {
+  font-family: "Press Start 2P", monospace, sans-serif;
+  font-size: 8px;
+  border-radius: 0;
+  border: 2px solid #000000;
+  background: #34a853;
+  color: #ffffff;
+  padding: 3px 6px;
+  margin-left: auto;
+}
+
+[data-theme="pixel"] .motion-badge.off {
+  background: #888888;
+  color: #ffffff;
 }
 
 /* --------------------------------------------------------------------------
