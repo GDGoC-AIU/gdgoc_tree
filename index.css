@@ -536,23 +536,29 @@ body {
 /* --------------------------------------------------------------------------
    Accessibility & Motion Preferences
    -------------------------------------------------------------------------- */
-/* Explicitly disabled by user */
+/* User explicitly disabled motion */
 html[data-motion="disabled"] .container-background-border,
 html[data-motion="disabled"] .particle {
   animation: none !important;
 }
 
 html[data-motion="disabled"] .container a,
+html[data-motion="disabled"] .container a::before,
 html[data-motion="disabled"] .tree-img-card,
 html[data-motion="disabled"] .tree-img-card img,
 html[data-motion="disabled"] .tree-heading,
 html[data-motion="disabled"] .tree-divider,
 html[data-motion="disabled"] .logo,
 html[data-motion="disabled"] .container h1,
-html[data-motion="disabled"] .container p {
+html[data-motion="disabled"] #description {
   opacity: 1 !important;
   transform: none !important;
   animation: none !important;
+  transition: none !important;
+}
+
+html[data-motion="disabled"] .container a img {
+  transition: none !important;
 }
 
 html[data-motion="disabled"] .google-circle {
@@ -560,11 +566,15 @@ html[data-motion="disabled"] .google-circle {
   animation: none !important;
 }
 
-/* System reduced motion (respects OS unless user explicitly chose data-motion="enabled") */
+/* OS prefers reduced motion, unless user explicitly enabled motion */
 @media (prefers-reduced-motion: reduce) {
   html:not([data-motion="enabled"]) .container-background-border,
   html:not([data-motion="enabled"]) .particle {
     animation: none !important;
+  }
+
+  html:not([data-motion="enabled"]) .container a img {
+    transition: none !important;
   }
 
   html:not([data-motion="enabled"]) .container a,
@@ -574,10 +584,11 @@ html[data-motion="disabled"] .google-circle {
   html:not([data-motion="enabled"]) .tree-divider,
   html:not([data-motion="enabled"]) .logo,
   html:not([data-motion="enabled"]) .container h1,
-  html:not([data-motion="enabled"]) .container p {
+  html:not([data-motion="enabled"]) #description {
     opacity: 1 !important;
     transform: none !important;
     animation: none !important;
+    transition: none !important;
   }
 
   html:not([data-motion="enabled"]) .google-circle {
