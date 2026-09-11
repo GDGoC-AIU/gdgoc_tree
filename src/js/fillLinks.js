@@ -77,6 +77,9 @@ export function renderTree(data) {
 
     switch (type) {
       case "button": {
+        const buttonWrapper = document.createElement("div");
+        buttonWrapper.className = "button-wrapper";
+
         const a = document.createElement("a");
         a.id = item.id || item.name || `btn-${visibleIndex}`;
 
@@ -143,7 +146,8 @@ export function renderTree(data) {
           });
         }
 
-        el = a;
+        buttonWrapper.appendChild(a);
+        el = buttonWrapper;
         break;
       }
 
@@ -283,4 +287,3 @@ window.addEventListener("themeChange", () => {
     renderTree(cachedData);
   }
 });
-

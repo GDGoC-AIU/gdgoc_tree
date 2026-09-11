@@ -219,13 +219,32 @@ body {
   gap: 16px;
 }
 
+.button-wrapper {
+  width: clamp(200px, 75%, 400px);
+  height: 50px;
+
+  opacity: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 20px;
+
+  cursor: pointer;
+
+  transition: transform 0.2s ease;
+}
+
 .container a {
   --button-before-color: white;
+
+  pointer-events: none;
 
   position: relative;
   z-index: 0;
 
-  width: clamp(200px, 75%, 400px);
+  width: 100%;
   height: 50px;
 
   font-size: 16px;
@@ -236,12 +255,9 @@ body {
   border: 1px solid #ccc;
   border-radius: 20px;
 
-  cursor: pointer;
   overflow: hidden;
 
   text-decoration: none;
-
-  opacity: 0;
 
   transition: transform 0.2s ease;
 }
@@ -291,31 +307,31 @@ body {
   height: 100%;
 }
 
-.container a:hover {
+.container .button-wrapper:hover a {
   transform: translateX(0) scale(1.05);
 }
 
-.container a:active {
+.container .button-wrapper:active {
   transform: translateX(0) scale(0.95);
 }
 
-.container a:hover::before {
+.container .button-wrapper:hover a::before {
   width: 100%;
 }
 
-.container a:hover img {
+.container .button-wrapper:hover a img {
   left: calc(100% - 30px);
 }
 
-.container a.disabled {
+.container .button-wrapper:has(a.disabled) {
   cursor: not-allowed;
   background: #f4f4f4;
   border-color: #bbb;
   color: #555;
 }
 
-.container a.disabled:active {
-  transform: none;
+.container .button-wrapper.button-wrapper:has(a.disabled):active {
+  transform: translateX(0) scale(1.05);
 }
 
 .container a.disabled img {

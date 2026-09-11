@@ -165,7 +165,7 @@
   transition: 0.25s steps(4);
 }
 
-[data-theme="pixel"] .container a:hover {
+[data-theme="pixel"] .container .button-wrapper:hover a {
   transform: translate(-2px, -2px);
   box-shadow:
     6px 6px 0px #000000,
