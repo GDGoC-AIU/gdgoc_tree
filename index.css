@@ -83,15 +83,13 @@ body {
 }
 
 .container-background-border {
-  aspect-ratio: 1 / 1;
-
   position: absolute;
 
-  height: 135%;
+  width: var(--background-size, 200vmax);
+  height: var(--background-size, 200vmax);
 
   top: 50%;
   left: 50%;
-
   transform: translate(-50%, -50%);
 
   background: conic-gradient(
