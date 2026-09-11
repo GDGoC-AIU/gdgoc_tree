@@ -77,6 +77,9 @@ export function renderTree(data) {
 
     switch (type) {
       case "button": {
+        const buttonWrapper = document.createElement("div");
+        buttonWrapper.className = "button-wrapper";
+
         const a = document.createElement("a");
         a.id = item.id || item.name || `btn-${visibleIndex}`;
 
@@ -101,14 +104,16 @@ export function renderTree(data) {
           });
         } else {
           a.style.setProperty("--button-before-color", item.color || "#4285f4");
-          a.href = item.link || "#";
-          if (
-            item.link &&
-            !item.link.startsWith("mailto:") &&
-            !item.link.startsWith("tel:")
-          ) {
-            a.target = "_blank";
-            a.rel = "noopener noreferrer";
+          if (item.link) {
+            a.href = item.link;
+
+            if (
+              !item.link.startsWith("mailto:") &&
+              !item.link.startsWith("tel:")
+            ) {
+              a.target = "_blank";
+              a.rel = "noopener noreferrer";
+            }
           }
         }
 
@@ -143,7 +148,13 @@ export function renderTree(data) {
           });
         }
 
-        el = a;
+        buttonWrapper.appendChild(a);
+
+        buttonWrapper.addEventListener("click", () => {
+          a.click();
+        });
+
+        el = buttonWrapper;
         break;
       }
 
@@ -283,4 +294,3 @@ window.addEventListener("themeChange", () => {
     renderTree(cachedData);
   }
 });
-
