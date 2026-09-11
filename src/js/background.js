@@ -7,7 +7,12 @@
  * ============================================================================
  */
 
-const GOOGLE_COLORS = Object.freeze(["#4285f4", "#ea4335", "#f9ab00", "#34a853"]);
+const GOOGLE_COLORS = Object.freeze([
+  "#4285f4",
+  "#ea4335",
+  "#f9ab00",
+  "#34a853",
+]);
 
 const PARTICLE_CONFIG = Object.freeze({
   MOBILE_MAX_WIDTH: 768,
@@ -15,7 +20,7 @@ const PARTICLE_CONFIG = Object.freeze({
   COUNT_DESKTOP: 35,
   MAX_DELAY_SECONDS: 20,
   MIN_DURATION_SECONDS: 20,
-  DURATION_SPREAD_SECONDS: 20
+  DURATION_SPREAD_SECONDS: 20,
 });
 
 function getRandomGoogleColor() {
@@ -70,3 +75,18 @@ if (document.readyState === "loading") {
 } else {
   initBackgroundParticles();
 }
+
+function updateBackgroundSize() {
+  const pageWidth = document.documentElement.scrollWidth;
+  const pageHeight = document.documentElement.scrollHeight;
+
+  const size = Math.max(pageWidth, pageHeight);
+
+  document.documentElement.style.setProperty(
+    "--background-size",
+    `${size * 1.6}px`,
+  );
+}
+
+updateBackgroundSize();
+window.addEventListener("resize", updateBackgroundSize);
