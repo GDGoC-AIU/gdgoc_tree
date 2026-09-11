@@ -83,10 +83,11 @@ body {
 }
 
 .container-background-border {
+  aspect-ratio: 1 / 1;
+
   position: absolute;
 
-  width: 10000px;
-  height: 10000px;
+  height: 135%;
 
   top: 50%;
   left: 50%;
