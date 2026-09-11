@@ -311,7 +311,7 @@ body {
   transform: translateX(0) scale(1.05);
 }
 
-.container .button-wrapper:active {
+.container .button-wrapper:active a {
   transform: translateX(0) scale(0.95);
 }
 
@@ -330,7 +330,7 @@ body {
   color: #555;
 }
 
-.container .button-wrapper.button-wrapper:has(a.disabled):active {
+.container .button-wrapper:has(a.disabled):active {
   transform: translateX(0) scale(1.05);
 }
 

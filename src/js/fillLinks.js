@@ -104,14 +104,16 @@ export function renderTree(data) {
           });
         } else {
           a.style.setProperty("--button-before-color", item.color || "#4285f4");
-          a.href = item.link || "#";
-          if (
-            item.link &&
-            !item.link.startsWith("mailto:") &&
-            !item.link.startsWith("tel:")
-          ) {
-            a.target = "_blank";
-            a.rel = "noopener noreferrer";
+          if (item.link) {
+            a.href = item.link;
+
+            if (
+              !item.link.startsWith("mailto:") &&
+              !item.link.startsWith("tel:")
+            ) {
+              a.target = "_blank";
+              a.rel = "noopener noreferrer";
+            }
           }
         }
 
@@ -147,6 +149,11 @@ export function renderTree(data) {
         }
 
         buttonWrapper.appendChild(a);
+
+        buttonWrapper.addEventListener("click", () => {
+          a.click();
+        });
+
         el = buttonWrapper;
         break;
       }

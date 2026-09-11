@@ -173,7 +173,7 @@
     inset -3px -3px 0px rgba(0, 0, 0, 0.2);
 }
 
-[data-theme="pixel"] .container a:active {
+[data-theme="pixel"] .container .button-wrapper:active a {
   transform: translate(2px, 2px);
   box-shadow:
     2px 2px 0px #000000,
@@ -182,12 +182,11 @@
 }
 
 [data-theme="pixel"] .container a.disabled {
-  cursor: not-allowed;
-  background: #e0e0e0;
+  background: #cdcdcd;
   color: #555555;
 }
 
-[data-theme="pixel"] .container a.disabled:active {
+[data-theme="pixel"] .container .button-wrapper:has(a.disabled):active {
   transform: none;
   box-shadow:
     4px 4px 0px #000000,
