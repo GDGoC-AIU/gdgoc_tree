@@ -134,16 +134,16 @@ export function renderTree(data) {
         a.appendChild(span);
 
         if (statusText) {
-          a.addEventListener("mouseenter", () => {
+          buttonWrapper.addEventListener("mouseenter", () => {
             span.textContent = statusText;
           });
-          a.addEventListener("mouseleave", () => {
+          buttonWrapper.addEventListener("mouseleave", () => {
             span.textContent = defaultText;
           });
-          a.addEventListener("focus", () => {
+          buttonWrapper.addEventListener("focus", () => {
             span.textContent = statusText;
           });
-          a.addEventListener("blur", () => {
+          buttonWrapper.addEventListener("blur", () => {
             span.textContent = defaultText;
           });
         }
