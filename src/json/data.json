@@ -18,14 +18,6 @@
       "active": true
     },
     {
-      "type": "button",
-      "id": "core-team-applications",
-      "text": "Core Team Applications Open!",
-      "link": "https://docs.google.com/forms/d/e/1FAIpQLScMAGvX80BMqQe4AEbhVsr7TEsWVdIA5m3GhgHjtuOl7XNDQA/viewform?usp=dialog",
-      "color": "red",
-      "active": true
-    },
-    {
       "type": "text",
       "variant": "heading",
       "text": "Community & Groups",
