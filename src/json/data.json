@@ -18,6 +18,14 @@
       "active": true
     },
     {
+      "type": "button",
+      "id": "early-interest-application",
+      "text": "Recruitment Early Interest!",
+      "link": "https://forms.gle/nwfpZrXETKtaqJCk6",
+      "color": "red",
+      "active": true
+    },
+    {
       "type": "text",
       "variant": "heading",
       "text": "Community & Groups",
