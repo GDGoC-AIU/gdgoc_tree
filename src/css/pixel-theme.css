@@ -299,6 +299,50 @@
 }
 
 /* --------------------------------------------------------------------------
+   10. Link Filter / Search Bar (Pixel Art Overrides)
+   -------------------------------------------------------------------------- */
+[data-theme="pixel"] .link-filter-input {
+  font-family: var(--theme-font-family);
+  font-size: var(--theme-btn-font-size);
+  font-weight: var(--theme-btn-font-weight);
+  border: var(--theme-btn-border);
+  border-radius: 0;
+  box-shadow: var(--theme-btn-shadow);
+  height: var(--theme-btn-height);
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+[data-theme="pixel"] .link-filter-clear {
+  font-family: var(--theme-font-family);
+  font-size: 14px;
+  border: var(--theme-btn-border);
+  border-radius: 0;
+  box-shadow: var(--theme-btn-shadow);
+  width: var(--theme-btn-height);
+  height: var(--theme-btn-height);
+  transition:
+    transform 0.1s steps(2),
+    box-shadow 0.1s steps(2),
+    background 0.1s steps(2);
+}
+
+[data-theme="pixel"] .link-filter-clear:hover {
+  background: var(--color-google-red, #ea4335);
+  color: #ffffff;
+  border-color: var(--color-google-red, #ea4335);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px var(--theme-border-color, #000000);
+}
+
+[data-theme="pixel"] .link-filter-empty {
+  font-family: var(--theme-font-family);
+  font-size: 10px;
+  color: var(--theme-desc-color);
+  line-height: 1.8;
+}
+
+/* --------------------------------------------------------------------------
    8. Mobile Responsiveness for Pixel Theme
    -------------------------------------------------------------------------- */
 @media (max-width: 850px) {

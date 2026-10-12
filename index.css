@@ -473,6 +473,107 @@ body {
   transform: translateY(0);
 }
 
+/* ============================================================
+   Link Filter / Search Bar (Classic Theme)
+   ============================================================ */
+
+.link-filter-wrapper {
+  flex-basis: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: clamp(20px, 5%, 40px);
+}
+
+.link-filter-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.link-filter-row {
+  display: flex;
+  width: clamp(200px, 75%, 400px);
+  gap: 8px;
+  align-items: center;
+}
+
+.link-filter-input {
+  flex: 1;
+  height: var(--theme-btn-height, 50px);
+  padding: 0 16px;
+  font-size: var(--theme-btn-font-size, 18px);
+  font-weight: var(--theme-btn-font-weight, bold);
+  color: var(--theme-btn-color, #000000);
+  background: var(--theme-btn-bg, #ffffff);
+  border: var(--theme-btn-border, 1px solid #cccccc);
+  border-radius: var(--theme-btn-radius, 20px);
+  box-shadow: var(--theme-btn-shadow, none);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.link-filter-input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+
+.link-filter-input:focus-visible {
+  outline: 2px solid var(--color-google-blue, #4285f4);
+  outline-offset: 2px;
+}
+
+.link-filter-clear {
+  flex-shrink: 0;
+  width: var(--theme-btn-height, 50px);
+  height: var(--theme-btn-height, 50px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--theme-btn-color, #000000);
+  background: var(--theme-btn-bg, #ffffff);
+  border: var(--theme-btn-border, 1px solid #cccccc);
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.link-filter-clear:hover {
+  background: var(--color-google-red, #ea4335);
+  color: #ffffff;
+  border-color: var(--color-google-red, #ea4335);
+}
+
+.link-filter-clear:focus-visible {
+  outline: 2px solid var(--color-google-blue, #4285f4);
+  outline-offset: 2px;
+}
+
+.link-filter-empty {
+  font-size: 14px;
+  color: var(--theme-desc-color, #666666);
+  margin: 0;
+  text-align: center;
+}
+
+/* Override explicit display:flex on .button-wrapper / .tree-img-card
+   so the [hidden] attribute correctly hides filtered items. */
+.link-filter-wrapper [hidden],
+.links [hidden] {
+  display: none !important;
+}
+
 @media (max-width: 850px) {
   .container-background {
     margin: 10px;
