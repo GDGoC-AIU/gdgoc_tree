@@ -303,7 +303,7 @@
    -------------------------------------------------------------------------- */
 [data-theme="pixel"] .link-filter-input {
   font-family: var(--theme-font-family);
-  font-size: var(--theme-btn-font-size);
+  font-size: 16px;
   font-weight: var(--theme-btn-font-weight);
   border: var(--theme-btn-border);
   border-radius: 0;
@@ -315,24 +315,38 @@
 
 [data-theme="pixel"] .link-filter-clear {
   font-family: var(--theme-font-family);
-  font-size: 14px;
-  border: var(--theme-btn-border);
+  font-size: 12px;
+  color: var(--theme-btn-color, #000000);
+  background: transparent;
+  border: none;
   border-radius: 0;
-  box-shadow: var(--theme-btn-shadow);
-  width: var(--theme-btn-height);
-  height: var(--theme-btn-height);
-  transition:
-    transform 0.1s steps(2),
-    box-shadow 0.1s steps(2),
-    background 0.1s steps(2);
+  box-shadow: none;
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: color 0.1s steps(2);
 }
 
-[data-theme="pixel"] .link-filter-clear:hover {
-  background: var(--color-google-red, #ea4335);
-  color: #ffffff;
-  border-color: var(--color-google-red, #ea4335);
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0px var(--theme-border-color, #000000);
+@media (hover: hover) {
+  [data-theme="pixel"] .link-filter-clear:hover {
+    color: var(--color-google-red, #ea4335);
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    transform: translateY(-50%);
+  }
+}
+
+[data-theme="pixel"] .link-filter-clear:active {
+  color: var(--color-google-red, #ea4335);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  transform: translateY(-50%);
 }
 
 [data-theme="pixel"] .link-filter-empty {
