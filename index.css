@@ -499,17 +499,19 @@ body {
 }
 
 .link-filter-row {
+  position: relative;
   display: flex;
   width: clamp(200px, 75%, 400px);
-  gap: 8px;
-  align-items: center;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .link-filter-input {
-  flex: 1;
+  width: 100%;
+  box-sizing: border-box;
   height: var(--theme-btn-height, 50px);
-  padding: 0 16px;
-  font-size: var(--theme-btn-font-size, 18px);
+  padding: 0 46px 0 16px;
+  font-size: 16px;
   font-weight: var(--theme-btn-font-weight, bold);
   color: var(--theme-btn-color, #000000);
   background: var(--theme-btn-bg, #ffffff);
@@ -521,8 +523,10 @@ body {
   appearance: none;
 }
 
+.link-filter-input::-webkit-search-decoration,
 .link-filter-input::-webkit-search-cancel-button {
   -webkit-appearance: none;
+  display: none;
 }
 
 .link-filter-input:focus-visible {
@@ -531,33 +535,46 @@ body {
 }
 
 .link-filter-clear {
-  flex-shrink: 0;
-  width: var(--theme-btn-height, 50px);
-  height: var(--theme-btn-height, 50px);
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 16px;
-  color: var(--theme-btn-color, #000000);
-  background: var(--theme-btn-bg, #ffffff);
-  border: var(--theme-btn-border, 1px solid #cccccc);
+  line-height: 1;
+  color: var(--theme-desc-color, #666666);
+  background: transparent;
+  border: none;
   border-radius: 50%;
+  box-shadow: none;
   cursor: pointer;
+  touch-action: manipulation;
   transition:
-    background 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease;
+    color 0.15s ease,
+    background-color 0.15s ease;
 }
 
-.link-filter-clear:hover {
-  background: var(--color-google-red, #ea4335);
-  color: #ffffff;
-  border-color: var(--color-google-red, #ea4335);
+@media (hover: hover) {
+  .link-filter-clear:hover {
+    color: var(--color-google-red, #ea4335);
+    background: color-mix(in srgb, var(--theme-text-color, #000000) 8%, transparent);
+  }
+}
+
+.link-filter-clear:active {
+  background: color-mix(in srgb, var(--theme-text-color, #000000) 14%, transparent);
 }
 
 .link-filter-clear:focus-visible {
   outline: 2px solid var(--color-google-blue, #4285f4);
-  outline-offset: 2px;
+  outline-offset: -2px;
 }
 
 .link-filter-empty {
