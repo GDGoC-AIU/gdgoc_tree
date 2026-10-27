@@ -84,7 +84,7 @@ function updateBackgroundSize() {
 
   document.documentElement.style.setProperty(
     "--background-size",
-    `${size * 1.6}px`,
+    `${size * 2.2}px`,
   );
 }
 
